@@ -116,7 +116,7 @@
          <p>
             <h5>Etapa 2: Conexiones</h5>
           <b>Esta etapa es igual que en la Parte {{ Constants.part_fixed }}</b>. Cada jugador puede proponerle conexiones a los demás y paga
-          un costo de {{ Constants.link_cost }} {{ Constants.exp_currency }} por cada relación propuesta.
+          un costo de {{ Constants.link_cost }} {{ Constants.exp_currency }} por cada conexión propuesta.
           </p>
       </div>
     </div>
@@ -137,8 +137,8 @@
             <h5>Etapa 4: Resultados</h5>
             <b>Esta etapa es igual que en la Parte {{ Constants.part_fixed }}</b>. Cada jugador es informado del número
             total de puntos que gana en esa ronda. Los puntos se calculan por las ganancias de coordinarse (las cuales
-            dependen del grupo que el jugador haya elegido en esa ronda, de la opción elegida, y del número de
-            coordinaciones con sus relaciones activas) menos los costos por proponer relaciones a los
+            dependen del grupo que el jugador haya elegido en esa ronda, de la acción elegida, y del número de
+            coordinaciones con sus conexiones activas) menos los costos por proponer conexiones a los
             demás{% if player.treat >= 4 %}, y menos el costo de cambiarse de grupo (en caso que el jugador haya cambiado
             de grupo){% endif %}.
           </p>

@@ -36,30 +36,31 @@
 </div>
 <div class="container">
     <div class="row">
-      <div class="col-sm-4 border border-dark rounded mb-1" id="network">
+      <div class="col-sm-3 border border-dark rounded mb-1" id="network">
         <div>
             <br>
             <h5>Jugador A.</h5>
             <img width="100%" src="{% static "alloc_es/Img_T1.jpeg" %}"/>
         </div>
       </div>
-      <div class="col-sm-4 border border-dark rounded mb-1" id="network">
+      <div class="col-sm-3 border border-dark rounded mb-1" id="network">
         <div>
             <br>
             <h5>Jugador B.</h5>
             <img width="100%" src="{% static "alloc_es/Img_T2.jpeg" %}"/>
         </div>
       </div>
-      <div class="col-sm-4 border border-dark rounded mb-1" id="network">
+      <div class="col-sm-6 border border-dark rounded mb-1" id="network">
         <div>
             <p>
-                Elija la forma en que quiere asignar los puntos entre A y B.
+                <b>Elija la forma en que quiere asignar los puntos entre A y B.</b>
             </p>
             <div id="center">
                 <input type="hidden" value="0" name="alloc" id="alloc"/>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(0)">0 a A y 10 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(1)">1 a A y 9 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(2)">2 a A y 8 a B</button>
+                <br>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(3)">3 a A y 7 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(4)">4 a A y 6 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(5)">5 a A y 5 a B</button>
@@ -67,6 +68,7 @@
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(6)">6 a A y 4 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(7)">7 a A y 3 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(8)">8 a A y 2 a B</button>
+                <br>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(9)">9 a A y 1 a B</button>
                 <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(10)">10 a A y 0 a B</button>
             </div>

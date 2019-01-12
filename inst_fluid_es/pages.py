@@ -26,40 +26,42 @@ class GroupChangeInst(Page):
 
     def given_group_error_message(self, value):
         if value != 3:
-            return 'In Part 2 you can change your group in each round'
+            return 'En esta Parte usted puede cambiar su grupo en cada ronda'
 
     def appearance_error_message(self, value):
         if self.player.treat == 1 or self.player.treat == 4:
             if value != 3:
-                return 'In Part 2 you change your appearance when you change your group'
+                return 'En esta Parte usted puede cambiar su apariencia cuando usted cambia su grupo'
         elif self.player.treat != 1 and self.player.treat != 4:
             if value != 1:
-                return 'In Part 2 you cannot change your appearance when you change your group'
+                return 'En esta Parte usted no puede cambiar su apariencia cuando usted cambia su grupo'
 
     def label_error_message(self, value):
         if value != 2:
-            return 'In Part 2 your label is randomly assigned in each round'
+            return 'En esta Parte su etiqueta se asigna aleatoriamente en cada ronda'
 
     def pay_coord_error_message(self, value):
         if value != 2:
-            return 'A player in group triangle gets 4 points for each coordination on Up with an active relation and pays 2 points' \
-                   ' for proposing the relation'
+            return 'Un jugadore en este grupo recibe 4 puntos por cada coordinación en la acción violeta con una ' \
+                   'conexión activa y paga 2 puntos por proponer esa conexión'
 
     def pay_coord2_error_message(self, value):
         if value != 1:
-            return 'A player in group circle gets 6 points for each coordination on Up with an active relation and pays 2 points' \
-                   ' for proposing the relation'
+            return 'Un jugadore en este grupo recibe 6 puntos por cada coordinación en la acción violeta con una ' \
+                   'conexión activa y paga 2 puntos por proponer esa conexión'
 
     def information_error_message(self, value):
         if self.player.treat == 1:
             if value != 1:
-                return 'The other players will see the group you choose as well as your new appearance'
+                return 'Los demás jugadores verán el grupo que usted ha elegido y su nueva apariencia'
         elif self.player.treat == 2:
             if value != 2:
-                return 'The other players will see the group you choose and your appearance from Part 1'
+                return 'Los demás jugadores verán el grupo que usted ha elegido y su apariencia que no cambia respecto ' \
+                       'a las partes anteriores'
         elif self.player.treat == 3:
             if value != 3:
-                return 'The other players will not see the group you choose but only your appearance from Part 1'
+                return 'Ls demás jugadores no verán el grupo que usted ha elegido pero sólo su apariencia que no cambia ' \
+                       'respecto a las partes anteriores'
 
 
 class SummaryInstWP(WaitPage):

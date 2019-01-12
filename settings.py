@@ -224,8 +224,8 @@ SESSION_CONFIGS = [
     #     'name': 'fluid_es',
     #     'display_name': "fluid_es",
     #     'num_demo_participants': 7,
-    #     'app_sequence': ['fluid_es'],
-    #     # 'treatment': 2,
+    #     'app_sequence': ['name_es','fluid_es'],
+    #     'treatment': 2,
     # },
 ]
 

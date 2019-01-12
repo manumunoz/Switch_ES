@@ -26,23 +26,23 @@ class DecisionsInst(Page):
 
     def given_group_error_message(self, value):
         if value != 1:
-            return 'In Part 1 your group is fixed for all 10 rounds'
+            return 'En esta Parte su grupo está fijo por todas las 10 rondas'
 
     def appearance_error_message(self, value):
         if value != 1:
-            return 'In Part 1 your appearance is fixed for all 10 rounds'
+            return 'En esta Parte su apariencia está fija por todas las 10 rondas'
 
     def label_error_message(self, value):
         if value != 2:
-            return 'In Part 1 your label is randomly assigned in each round'
+            return 'En esta Parte su etiqueta se asigna aleatoriamente en cada ronda'
 
     def active_error_message(self, value):
         if value != 3:
-            return 'Active relations require being proposed by both players'
+            return 'Para que una conexión esté activa se requiere que los dos jugadores la propongan'
 
     def count_error_message(self, value):
         if value != 3:
-            return 'Active relations require being proposed by both players'
+            return 'Para que una conexión esté activa se requiere que los dos jugadores la propongan'
 
 
 class PointsInstWP(WaitPage):
@@ -58,13 +58,14 @@ class PointsInst(Page):
 
     def pay_coord_error_message(self, value):
         if value != 1:
-            return 'A player in group circle gets 6 points for each coordination with an active relation and pays 2 points' \
-                   ' for proposing the relation'
+            return 'Un jugador en este grupo recibe 6 puntos por cada coordinación con una conexión activa y paga 2 ' \
+                   'puntos por haber propuesto esa conexión'
+
 
     def pay_nocoord_error_message(self, value):
         if value != 3:
-            return 'A player get no points if there is no coordination with an active relation but still pays the 2 points' \
-                   ' for proposing the relation'
+            return 'Un jugador no recibe puntos si no se coordina con una conexión aciva pero aún así paga 2 puntos por ' \
+                   'haber propuesto esa conexión'
 
 
 class SummaryInstWP(WaitPage):

@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     instructions_template = 'fixed_es/Instructions.html'
-    periods = 10
+    periods = 1 #10
     num_rounds = periods
     #------------------------------------------
     # Treatment & Group parameters
@@ -238,6 +238,7 @@ class Group(BaseGroup):
                 player.points_fixed = player.round_gains
                 player.payoff = player.round_gains
             else:
+                player.points_fixed = 0
                 player.payoff = 0
 
 
@@ -266,8 +267,9 @@ class Player(BasePlayer):
         }
 
     def var_between_apps(self):
-        self.participant.vars['part_fixed_round'] = self.session.vars['paying_round_1']
-        self.participant.vars['part_fixed_payoff'] = self.points_fixed
+        if self.round_number == self.session.vars['paying_round_1']:
+            self.participant.vars['part_fixed_round'] = self.session.vars['paying_round_1']
+            self.participant.vars['part_fixed_payoff'] = self.points_fixed
 
     name = models.StringField()
     friends = models.LongStringField()

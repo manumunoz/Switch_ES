@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     instructions_template = 'fluid_es/Instructions.html'
-    periods = 10
+    periods = 1 #10
     num_rounds = periods
     #------------------------------------------
     # Treatment & Group parameters
@@ -46,6 +46,7 @@ class Constants(BaseConstants):
     personal = 1
     exchange = 2
     switch_cost = 6
+    switch_free = 0
     #------------------------------------------
     # Group Names
     group_a = 'Leones' #Leones
@@ -63,7 +64,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        treat = itertools.cycle([1, 2, 3])
+        treat = itertools.cycle([1, 2, 3, 4, 5, 6])
         # 1: Full-Free, 2: Sticky-Free, 3: Blurry-Free, 4: Full-Cost, 5: Sticky-Cost, 6: Blurry-Cost
         # for p in self.get_players():
         #     p.treat = next(treat)
@@ -179,36 +180,45 @@ class Group(BaseGroup):
 
     def switching_costs(self):
         for player in self.get_players():
-            if player.treat == 1:
-                player.switch = 0
-            elif player.treat == 2:
-                player.switch = 0
-            elif player.treat == 3:
-                player.switch = 0
-            elif player.treat == 4 and player.given_type == 1 and player.chosen_type == 1:
-                player.switch = 0
-            elif player.treat == 4 and player.given_type == 1 and player.chosen_type == 5:
-                player.switch = Constants.switch_cost
-            elif player.treat == 4 and player.given_type == 5 and player.chosen_type == 5:
-                player.switch = 0
-            elif player.treat == 4 and player.given_type == 5 and player.chosen_type == 1:
-                player.switch = Constants.switch_cost
-            elif player.treat == 5 and player.given_type == 1 and player.chosen_type == 1:
-                player.switch = 0
-            elif player.treat == 5 and player.given_type == 1 and player.chosen_type == 2:
-                player.switch = Constants.switch_cost
-            elif player.treat == 5 and player.given_type == 5 and player.chosen_type == 5:
-                player.switch = 0
-            elif player.treat == 5 and player.given_type == 5 and player.chosen_type == 6:
-                player.switch = Constants.switch_cost
-            elif player.treat == 6 and player.given_type == 1 and player.chosen_type == 3:
-                player.switch = 0
-            elif player.treat == 6 and player.given_type == 1 and player.chosen_type == 4:
-                player.switch = Constants.switch_cost
-            elif player.treat == 6 and player.given_type == 5 and player.chosen_type == 7:
-                player.switch = 0
-            elif player.treat == 6 and player.given_type == 5 and player.chosen_type == 8:
-                player.switch = Constants.switch_cost
+            if player.treat == 1 or player.treat == 4:
+                if player.given_type == 1 and player.chosen_type == 5:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_cost
+                elif player.given_type == 1 and player.chosen_type == 1:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 1:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_cost
+                elif player.given_type == 5 and player.chosen_type == 5:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+            elif player.treat == 2 or player.treat == 5:
+                if player.given_type == 1 and player.chosen_type == 2:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_cost
+                elif player.given_type == 1 and player.chosen_type == 1:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 6:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_cost
+                elif player.given_type == 5 and player.chosen_type == 5:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+            elif player.treat == 3 or player.treat == 6:
+                if player.given_type == 1 and player.chosen_type == 4:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_cost
+                elif player.given_type == 1 and player.chosen_type == 3:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 7:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_cost
+                elif player.given_type == 5 and player.chosen_type == 8:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
 
     def summing_initial_types(self):
         players = self.get_players()
@@ -307,15 +317,21 @@ class Group(BaseGroup):
 
     def round_gains(self):
         for player in self.get_players():
-            player.round_gains = player.coordination_gains - player.linking_costs - player.switch
+            player.round_gains = player.coordination_gains - player.linking_costs - player.switch_cost
 
     def round_payoffs(self):
         for player in self.get_players():
             if self.subsession.round_number == self.session.vars['paying_round_2']:
-                player.points_fluid = player.round_gains
                 player.payoff = player.round_gains
             else:
                 player.payoff = 0
+
+    def round_points(self):
+        for player in self.get_players():
+            if self.subsession.round_number == self.session.vars['paying_round_2']:
+                player.points_fluid = player.round_gains
+            else:
+                player.points_fluid = 0
 
     def summing_choices(self):
         players = self.get_players()
@@ -341,6 +357,7 @@ class Player(BasePlayer):
     round_gains = models.IntegerField()
     points_fluid = models.IntegerField()
     switch = models.IntegerField()
+    switch_cost = models.IntegerField()
 
     def vars_for_template(self):
         return {
@@ -352,8 +369,9 @@ class Player(BasePlayer):
         }
 
     def var_between_apps(self):
-        self.participant.vars['part_fluid_round'] = self.session.vars['paying_round_2']
-        self.participant.vars['part_fluid_payoff'] = self.points_fluid
+        if self.subsession.round_number == self.session.vars['paying_round_2']:
+            self.participant.vars['part_fluid_round'] = self.session.vars['paying_round_2']
+            self.participant.vars['part_fluid_payoff'] = self.points_fluid
 
     name = models.StringField()
     friends = models.LongStringField()

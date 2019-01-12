@@ -85,6 +85,7 @@ class BeforeResultsWP(WaitPage):
         self.group.values_coordination()
         self.group.round_gains()
         self.group.round_payoffs()
+        self.group.round_points()
         self.group.forming_network()
         self.group.summing_choices()
 

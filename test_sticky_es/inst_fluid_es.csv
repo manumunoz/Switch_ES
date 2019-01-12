@@ -1,8 +1,8 @@
 participant.id_in_session,participant.code,participant.label,participant._is_bot,participant._index_in_pages,participant._max_page_index,participant._current_app_name,participant._current_page_name,participant.ip_address,participant.time_started,participant.visited,participant.mturk_worker_id,participant.mturk_assignment_id,participant.payoff,player.id_in_group,player.treat,player.given_group,player.appearance,player.label,player.pay_coord,player.pay_coord2,player.information,player.payoff,group.id_in_subsession,subsession.round_number,session.code,session.label,session.experimenter_name,session.mturk_HITId,session.mturk_HITGroupId,session.comment,session.is_demo
-1,o1ie05kc,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.501650+00:00,1,,,10,1,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
-2,q5c1sb0a,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.522873+00:00,1,,,16,2,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
-3,kgpuzkfb,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.535550+00:00,1,,,10,3,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
-4,kiynrxga,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.548213+00:00,1,,,10,4,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
-5,f6wt81fe,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.560934+00:00,1,,,10,5,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
-6,xaalorhv,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.573457+00:00,1,,,10,6,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
-7,we936q5h,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 11:46:57.586252+00:00,1,,,10,7,2,3,1,2,2,1,2,0,1,1,0701nq4h,,,,,,0
+1,lge8dnbl,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.566533+00:00,1,,,15,1,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
+2,bhgcd0z4,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.596074+00:00,1,,,13,2,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
+3,84t6nenj,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.611917+00:00,1,,,10,3,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
+4,08jjdkrk,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.625075+00:00,1,,,10,4,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
+5,7j1qck9w,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.637994+00:00,1,,,10,5,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
+6,66jk5gd6,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.650658+00:00,1,,,10,6,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
+7,msjpbke9,,1,212,211,pay_es,RandomPay,127.0.0.1,2019-01-12 20:41:41.663720+00:00,1,,,12,7,2,3,1,2,2,1,2,0,1,1,joyqd1l2,,,,,,0
