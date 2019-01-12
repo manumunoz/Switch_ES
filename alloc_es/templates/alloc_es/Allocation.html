@@ -1,0 +1,134 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 border border-dark text-white rounded" id="upper">
+          <h2>Parte {{ Constants.part_alloc }}: <span id="lower"> Asignación </span></h2>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 border border-dark text-white rounded mb-1" id="middle">
+          <br>
+          En esta parte final, usted y cada uno de los demás jugadores estará aleatoriamente emparejado con otros dos de
+          los {{ Constants.others }} jugadores con los que ha estado participando a lo largo de este estudio. Los jugadores
+          con los que usted sea emparejados serán etiquetados como jugadores A y B. El jugador <b>A</b> es uno de los jugadores
+          asignado al grupo <span id='symbol'>&#9679</span> "{{ circles_label }}" en la Parte {{ Constants.part_name }}.
+          El jugador <b>B</b> es uno de los jugadores asignado al grupo <span id='symbol'>&#9650</span> "{{ triangles_label }}"
+          en la Parte {{ Constants.part_name }}.
+          <br><br>
+          <b>Usted tiene {{ Constants.pie }} {{ Constants.exp_currency }} para distribuir entre los jugadores A y B.
+              Usted puede distribuir los puntos en la forma en que usted quiera.</b>
+          <br><br>
+          Luego, el computador de manera aleatoria elegirá y llevará a cabo la distribución hecha por uno de los {{ Constants.players }}
+          jugadores. Por ejemplo, si su distribución es seleccionada por el computador, entonces los dos jugadores A y B que
+          han sido emparejados con usted recibirán los puntos que usted le haya asignado a cada uno. Ninguno de los otros
+          5 jugadores (incluido usted) recibirá ningún punto en esta parte.
+          <br><br>
+      </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4 border border-dark rounded mb-1" id="network">
+        <div>
+            <br>
+            <h5>Jugador A.</h5>
+            <img width="100%" src="{% static "alloc_es/Img_T1.jpeg" %}"/>
+        </div>
+      </div>
+      <div class="col-sm-4 border border-dark rounded mb-1" id="network">
+        <div>
+            <br>
+            <h5>Jugador B.</h5>
+            <img width="100%" src="{% static "alloc_es/Img_T2.jpeg" %}"/>
+        </div>
+      </div>
+      <div class="col-sm-4 border border-dark rounded mb-1" id="network">
+        <div>
+            <p>
+                Elija la forma en que quiere asignar los puntos entre A y B.
+            </p>
+            <div id="center">
+                <input type="hidden" value="0" name="alloc" id="alloc"/>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(0)">0 a A y 10 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(1)">1 a A y 9 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(2)">2 a A y 8 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(3)">3 a A y 7 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(4)">4 a A y 6 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(5)">5 a A y 5 a B</button>
+                <br>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(6)">6 a A y 4 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(7)">7 a A y 3 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(8)">8 a A y 2 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(9)">9 a A y 1 a B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(10)">10 a A y 0 a B</button>
+            </div>
+            <br>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block styles %}
+    <style type="text/css">
+        #center {
+            text-align: center;
+        }
+        .button {
+            background-color: #000000;
+            color: #EEE8AA;
+            border: 2px solid #EEE8AA;
+        }
+        .button:hover {
+            background-color: #EEE8AA;
+            color: #000000;
+            border: 2px solid #000000
+        }
+        #upper{
+            background-color: #000000;
+        }
+        #middle{
+            background-color: #424242;
+        }
+        #lower{
+            color: #EEE8AA
+        }
+        #network{
+            background-color: #ffffff;
+        }
+        .buttonup {
+            background-color: #9C27B0;
+            color: #ffffff;
+            border: 1px solid #AD1457;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+        .buttondown {
+            background-color: #00BCD4;
+            color: #ffffff;
+            border: 1px solid #00838F;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+        .button_inst {
+            background-color: #EEE8AA;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+    </style>
+{% endblock %}
