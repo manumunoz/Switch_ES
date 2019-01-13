@@ -64,7 +64,7 @@ class PointsInst(Page):
 
     def pay_nocoord_error_message(self, value):
         if value != 3:
-            return 'Un jugador no recibe puntos si no se coordina con una conexión aciva pero aún así paga 2 puntos por ' \
+            return 'Un jugador no recibe puntos si no se coordina con una conexión activa pero aún así paga 2 puntos por ' \
                    'haber propuesto esa conexión'
 
 

@@ -26,7 +26,7 @@ class GroupChangeInst(Page):
 
     def given_group_error_message(self, value):
         if value != 3:
-            return 'En esta Parte usted puede cambiar su grupo en cada ronda'
+            return 'En esta Parte usted puede cambiarse de grupo en cada ronda'
 
     def appearance_error_message(self, value):
         if self.player.treat == 1 or self.player.treat == 4:
@@ -34,7 +34,7 @@ class GroupChangeInst(Page):
                 return 'En esta Parte usted puede cambiar su apariencia cuando usted cambia su grupo'
         elif self.player.treat != 1 and self.player.treat != 4:
             if value != 1:
-                return 'En esta Parte usted no puede cambiar su apariencia cuando usted cambia su grupo'
+                return 'En esta Parte usted no puede cambiar su apariencia aunque cambie de grupo'
 
     def label_error_message(self, value):
         if value != 2:
@@ -42,25 +42,25 @@ class GroupChangeInst(Page):
 
     def pay_coord_error_message(self, value):
         if value != 2:
-            return 'Un jugadore en este grupo recibe 4 puntos por cada coordinación en la acción violeta con una ' \
+            return 'Un jugador en este grupo recibe 4 puntos por cada coordinación en la acción violeta con una ' \
                    'conexión activa y paga 2 puntos por proponer esa conexión'
 
     def pay_coord2_error_message(self, value):
         if value != 1:
-            return 'Un jugadore en este grupo recibe 6 puntos por cada coordinación en la acción violeta con una ' \
+            return 'Un jugador en este grupo recibe 6 puntos por cada coordinación en la acción violeta con una ' \
                    'conexión activa y paga 2 puntos por proponer esa conexión'
 
     def information_error_message(self, value):
         if self.player.treat == 1:
             if value != 1:
-                return 'Los demás jugadores verán el grupo que usted ha elegido y su nueva apariencia'
+                return 'Los demás jugadores verán el grupo que usted haya elegido. También verán su nueva apariencia'
         elif self.player.treat == 2:
             if value != 2:
-                return 'Los demás jugadores verán el grupo que usted ha elegido y su apariencia que no cambia respecto ' \
+                return 'Los demás jugadores verán el grupo que usted haya elegido. También verá  su apariencia que no cambia respecto ' \
                        'a las partes anteriores'
         elif self.player.treat == 3:
             if value != 3:
-                return 'Ls demás jugadores no verán el grupo que usted ha elegido pero sólo su apariencia que no cambia ' \
+                return 'Ls demás jugadores no verán el grupo que usted ha elegido. Pero sí verán su apariencia que no cambia ' \
                        'respecto a las partes anteriores'
 
 

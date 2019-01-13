@@ -58,7 +58,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'Pesos: '
+REAL_WORLD_CURRENCY_CODE = 'Pesos'
 REAL_WORLD_CURRENCY_DECIMAL_PLACES = 0
 USE_POINTS = True
 USE_THOUSAND_SEPARATOR = True
@@ -134,20 +134,19 @@ SESSION_CONFIGS = [
     # --------------------------------------------#
     # -------------  TREATMENTS  -----------------#
     # --------------------------------------------#
-    # {
-    #     'name': 'full_es',
-    #     'display_name': "full_es",
-    #     'num_demo_participants': 7,
-    #     'app_sequence': ['name_en', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-    #     'treatment': 1,
-    #     # 'use_browser_bots': True
-    # },
+    {
+        'name': 'full_es',
+        'display_name': "full_es",
+        'num_demo_participants': 7,
+        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'treatment': 1,
+        # 'use_browser_bots': True
+    },
     {
         'name': 'sticky_es',
         'display_name': "sticky_es",
         'num_demo_participants': 7,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-        # 'app_sequence': ['name_es', 'fixed_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 2,
         # 'use_browser_bots': True
     },
@@ -159,20 +158,19 @@ SESSION_CONFIGS = [
         'treatment': 3,
         # 'use_browser_bots': True
     },
-    # {
-    #     'name': 'full_cost_es',
-    #     'display_name': "full_es",
-    #     'num_demo_participants': 7,
-    #     'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-    #     'treatment': 4,
-    #     # 'use_browser_bots': True
-    # },
+    {
+        'name': 'full_cost_es',
+        'display_name': "full_es",
+        'num_demo_participants': 7,
+        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'treatment': 4,
+        # 'use_browser_bots': True
+    },
     {
         'name': 'sticky_cost_es',
         'display_name': "sticky_cost_es",
         'num_demo_participants': 7,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-        # 'app_sequence': ['name_es', 'fixed_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 5,
         # 'use_browser_bots': True
     },
@@ -192,13 +190,6 @@ SESSION_CONFIGS = [
     #     'display_name': "name_es",
     #     'num_demo_participants': 7,
     #     'app_sequence': ['name_es'],
-    #     # 'use_browser_bots': True
-    # },
-    # {
-    #     'name': 'alloc_es',
-    #     'display_name': "alloc_es",
-    #     'num_demo_participants': 7,
-    #     'app_sequence': ['name_es', 'alloc_es'],
     #     # 'use_browser_bots': True
     # },
     # {
@@ -226,6 +217,13 @@ SESSION_CONFIGS = [
     #     'num_demo_participants': 7,
     #     'app_sequence': ['name_es','fluid_es'],
     #     'treatment': 2,
+    # },
+    # {
+    #     'name': 'alloc_es',
+    #     'display_name': "alloc_es",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['name_es', 'alloc_es'],
+    #     # 'use_browser_bots': True
     # },
 ]
 

@@ -20,7 +20,6 @@
           </p>
         <p>
             En la Parte {{ Constants.part_fixed }} (ronda elegida: {{ part_fixed_round }}):
-            <br>
             <h4 id='lower'> {{ part_fixed_payoff }} {{ Constants.exp_currency }}</h4>
             En la Parte {{ Constants.part_fluid }} (ronda elegida: {{ part_fluid_round }}):
             <h4 id='lower'> {{ part_fluid_payoff }} {{ Constants.exp_currency }}</h4>
@@ -30,11 +29,14 @@
       </div>
       <div class="col-sm-8 border rounded" id="network">
           <p>
-          En total, usted ganó {{ player.total_points }} {{ Constants.exp_currency }} y cada punto será convertido a {{ Constants.currency_exchange }}
+          En total, usted ganó {{ player.total_points }} y cada punto será convertido a {{ Constants.currency_exchange }}
               {{ Constants.currency }}.
               <br>
+            {% if player.total_points < 10 %}
+                <br>
               * En este estudio se garantiza que usted reciba un pago mínimo de {{ Constants.min_pay }} {{ Constants.currency }}
-            <br><br>
+            {% endif %}
+            <br>
               Por lo tanto, su pago final es:
             <br>
         <h1>{{ participant.payoff_plus_participation_fee }}</h1>

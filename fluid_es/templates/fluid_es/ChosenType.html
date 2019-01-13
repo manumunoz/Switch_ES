@@ -45,7 +45,7 @@
     <div class="row">
       <div class="col-sm-12 border border-dark text-white rounded mb-1" id="middle">
           <br>
-          <h5><span id="lower">En esta ronda:</span> Elija si quiere cambiar al otro grupo o quedarse en su grupo.</h5>
+          <h5><span id="lower">En esta ronda:</span> Elija si quiere cambiarse al otro grupo o quedarse en su grupo.</h5>
           Presione uno de los botones para <b>elegir un grupo</b>. <i>Usted será ilustrado en la pantalla usando la
           imagen encima del botón que usted presione:
             {% if player.treat >= 4 %}
@@ -66,31 +66,31 @@
                 {% if player.given_type == 1 %}
                 <img width="100%" src="{% static "fluid_es/Img_T2.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="5" class="btn button btn-large"> Cambiar a &#9650 </button>
+                <button name="chosen_type" value="5" class="btn button btn-large"> Cambiar a &#9650 "{{ triangles_label }}"</button>
                 {% else %}
                 <img width="100%" src="{% static "fluid_es/Img_T1.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="1" class="btn button btn-large"> Cambiar a &#9679 </button>
+                <button name="chosen_type" value="1" class="btn button btn-large"> Cambiar a &#9679 "{{ circles_label }}"</button>
                 {% endif %}
             {% elif player.treat == 2 or player.treat == 5 %}
                 {% if player.given_type == 1 %}
                 <img width="100%" src="{% static "fluid_es/Img_T3.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="2" class="btn button btn-large"> Cambiar a &#9650 </button>
+                <button name="chosen_type" value="2" class="btn button btn-large"> Cambiar a &#9650 "{{ triangles_label }}"</button>
                 {% else %}
                 <img width="100%" src="{% static "fluid_es/Img_T4.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="6" class="btn button btn-large"> Cambiar a &#9679 </button>
+                <button name="chosen_type" value="6" class="btn button btn-large"> Cambiar a &#9679 "{{ circles_label }}"</button>
                 {% endif %}
             {% elif player.treat == 3 or player.treat == 6 %}
                 {% if player.given_type == 1 %}
                 <img width="100%" src="{% static "fluid_es/Img_T5.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="4" class="btn button btn-large"> Cambiar a &#9650 </button>
+                <button name="chosen_type" value="4" class="btn button btn-large"> Cambiar a &#9650 "{{ triangles_label }}"</button>
                 {% else %}
                 <img width="100%" src="{% static "fluid_es/Img_T6.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="7" class="btn button btn-large"> Cambiar a &#9679 </button>
+                <button name="chosen_type" value="7" class="btn button btn-large"> Cambiar a &#9679 "{{ circles_label }}"</button>
                 {% endif %}
             {% endif %}
         </div>
@@ -103,31 +103,31 @@
                 {% if player.given_type == 1 %}
               <img width="100%" src="{% static "fluid_es/Img_T1.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="1" class="btn button btn-large"> Quedarme como &#9679 </button>
+                <button name="chosen_type" value="1" class="btn button btn-large"> Quedarme como &#9679 "{{ circles_label }}"</button>
                 {% else %}
                 <img width="100%" src="{% static "fluid_es/Img_T2.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="5" class="btn button btn-large"> Quedarme como &#9650 </button>
+                <button name="chosen_type" value="5" class="btn button btn-large"> Quedarme como &#9650 "{{ triangles_label }}"</button>
                 {% endif %}
             {% elif player.treat == 2 or player.treat == 5 %}
                 {% if player.given_type == 1 %}
               <img width="100%" src="{% static "fluid_es/Img_T1.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="1" class="btn button btn-large"> Quedarme como &#9679 </button>
+                <button name="chosen_type" value="1" class="btn button btn-large"> Quedarme como &#9679 "{{ circles_label }}"</button>
                 {% else %}
                 <img width="100%" src="{% static "fluid_es/Img_T2.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="5" class="btn button btn-large"> Quedarme como &#9650 </button>
+                <button name="chosen_type" value="5" class="btn button btn-large"> Quedarme como &#9650 "{{ triangles_label }}"</button>
                 {% endif %}
             {% elif player.treat == 3 or player.treat == 6 %}
                 {% if player.given_type == 1 %}
               <img width="100%" src="{% static "fluid_es/Img_T5.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="3" class="btn button btn-large"> Quedarme como &#9679 </button>
+                <button name="chosen_type" value="3" class="btn button btn-large"> Quedarme como &#9679 "{{ circles_label }}"</button>
                 {% else %}
               <img width="100%" src="{% static "fluid_es/Img_T6.jpeg" %}"/>
           <br>
-                <button name="chosen_type" value="8" class="btn button btn-large"> Quedarme como &#9650 </button>
+                <button name="chosen_type" value="8" class="btn button btn-large"> Quedarme como &#9650 "{{ triangles_label }}"</button>
                 {% endif %}
             {% endif %}
         </div>

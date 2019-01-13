@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     instructions_template = 'fluid_es/Instructions.html'
-    periods = 1 #10
+    periods = 10
     num_rounds = periods
     #------------------------------------------
     # Treatment & Group parameters
@@ -180,7 +180,46 @@ class Group(BaseGroup):
 
     def switching_costs(self):
         for player in self.get_players():
-            if player.treat == 1 or player.treat == 4:
+            if player.treat == 1:
+                if player.given_type == 1 and player.chosen_type == 5:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 1 and player.chosen_type == 1:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 1:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 5:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+            elif player.treat == 2:
+                if player.given_type == 1 and player.chosen_type == 2:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 1 and player.chosen_type == 1:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 6:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 5:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+            elif player.treat == 3:
+                if player.given_type == 1 and player.chosen_type == 4:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 1 and player.chosen_type == 3:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 7:
+                        player.switch = 1
+                        player.switch_cost = Constants.switch_free
+                elif player.given_type == 5 and player.chosen_type == 8:
+                        player.switch = 0
+                        player.switch_cost = Constants.switch_free
+            if player.treat == 4:
                 if player.given_type == 1 and player.chosen_type == 5:
                         player.switch = 1
                         player.switch_cost = Constants.switch_cost
@@ -193,7 +232,7 @@ class Group(BaseGroup):
                 elif player.given_type == 5 and player.chosen_type == 5:
                         player.switch = 0
                         player.switch_cost = Constants.switch_free
-            elif player.treat == 2 or player.treat == 5:
+            elif player.treat == 5:
                 if player.given_type == 1 and player.chosen_type == 2:
                         player.switch = 1
                         player.switch_cost = Constants.switch_cost
@@ -206,7 +245,7 @@ class Group(BaseGroup):
                 elif player.given_type == 5 and player.chosen_type == 5:
                         player.switch = 0
                         player.switch_cost = Constants.switch_free
-            elif player.treat == 3 or player.treat == 6:
+            elif player.treat == 6:
                 if player.given_type == 1 and player.chosen_type == 4:
                         player.switch = 1
                         player.switch_cost = Constants.switch_cost

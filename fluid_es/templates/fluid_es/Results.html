@@ -59,43 +59,74 @@
             En esta ronda usted gana:
             <h3 id="highlight">{{ player.round_gains }} {{ Constants.exp_currency }}</h3>
             <small>
-            {% if player.action == 1 %}
-                {% if player.switch == 0 %}
-                    Usted eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
-                    coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
-                    <br>
-                    [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
-                    {{ player.round_gains }} {{ Constants.exp_currency }}]
-                {% elif player.switch == 1 %}
-                    Usted cambió de grupo y eligió la acción <span id="highlight">violeta</span>. Usted tiene
-                    <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
-                    <span id="lower"> {{ player.out_degree }} </span> conexiones:
-                    <br>
-                    [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =
-                    {{ player.round_gains }} {{ Constants.exp_currency }}]
+            {% if player.treat <= 3 %}
+                {% if player.action == 1 %}
+                    {% if player.switch == 0 %}
+                        Usted eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                        coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% elif player.switch == 1 %}
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">violeta</span>. Usted tiene
+                        <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
+                        <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% endif %}
+                {% elif player.action == 0 %}
+                    {% if player.switch == 0 %}
+                        Usted eligió la acción <span id="highlight">celeste</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                        coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% elif player.switch == 1 %}
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">celeste</span>. Usted tiene
+                        <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
+                        <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% endif %}
                 {% endif %}
-            {% elif player.action == 0 %}
-                {% if player.switch == 0 %}
-                    Usted eligió la acción <span id="highlight">celeste</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
-                    coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
-                    <br>
-                    [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
-                    {{ player.round_gains }} {{ Constants.exp_currency }}]
-                {% elif player.switch == 1 %}
-                     Usted cambió de grupo y eligió la acción <span id="highlight">celeste</span>. Usted tiene
-                    <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
-                    <span id="lower"> {{ player.out_degree }} </span> conexiones:
-                    <br>
-                    [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =
-                    {{ player.round_gains }} {{ Constants.exp_currency }}]
+            {% elif player.treat >= 4 %}
+                {% if player.action == 1 %}
+                    {% if player.switch == 0 %}
+                        Usted eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                        coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% elif player.switch == 1 %}
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">violeta</span>. Usted tiene
+                        <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
+                        <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% endif %}
+                {% elif player.action == 0 %}
+                    {% if player.switch == 0 %}
+                        Usted eligió la acción <span id="highlight">celeste</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                        coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% elif player.switch == 1 %}
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">celeste</span>. Usted tiene
+                        <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
+                        <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                        <br>
+                        [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =
+                        {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% endif %}
                 {% endif %}
             {% endif %}
             </small>
-
             <br><br>
-
                 <button type="otree-btn-next" class="btn button btn-md"> Continuar </button>
-
             </p>
         </div>
       </div>

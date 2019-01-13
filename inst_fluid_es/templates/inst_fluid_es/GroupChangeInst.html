@@ -31,10 +31,10 @@
             <h5>Etapa 1: Elección de Grupo</h5>
             Al inicio de cada ronda, <b>antes de la etapa 1</b>, todos los jugadores serán asignados al mismo grupo que
             pertenecían en la Parte {{ Constants.part_fixed }}. Si usted era &#9679 "{{ circles_label }}" en la Parte {{ Constants.part_fixed }},
-            usted comenzará cada ronda en la Parte 2 como un &#9679. Si usted era &#9650 "{{ triangles_label }}" en la
+            usted comenzará cada ronda en la Parte {{ Constants.part_fluid }} como un &#9679. Si usted era &#9650 "{{ triangles_label }}" en la
             Parte {{ Constants.part_fixed }}, usted comenzará cada ronda en la Parte {{ Constants.part_fluid }} como un &#9650.
             <br><br>
-            Después, en la etapa de <b>Elección de Grupo</b> cada jugador decidirá si quiere quedarse en su grupo o si quiere cambiar.
+            Después, en la etapa de <b>Elección de Grupo</b> cada jugador decidirá si quiere quedarse en su grupo o si se quiere cambiar.
             {% if player.treat >= 4 %}
             <b>Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo de {{ Constants.switch_cost }}
                 {{ Constants.exp_currency }}.</b>
@@ -51,7 +51,7 @@
                     un jugador no cambiará aunque cambie su grupo</b>.
             {% endif %}
             <br><br>
-            El ejemplo debajo muestra las decisiones que un jugador puede tomar dependiendo del grupo que alija que pertenezca
+            El ejemplo debajo muestra las decisiones que un jugador puede tomar dependiendo del grupo que al que pertenezca
             al incio de cada ronda. La imagen encima de cada botón indica cómo los demás jugadores lo verán en las tres
             etapas restantes de esa ronda (Conexiones, Acciones y Resultados) dependiendo de si cambia o se queda en su grupo.
           </p>
@@ -87,25 +87,25 @@
             <b>Puntos en la Parte {{ Constants.part_fluid }}:</b>
             <br><br>
             Si un jugador en el grupo &#9679 "{{ circles_label }}" se queda en el mismo grupo, ese jugador seguirá
-             ganando {{ Constants.exp_currency }} de la misma manera que antes. Es decir, {{ Constants.liked_gain }}
+             ganando {{ Constants.exp_currency }} como uno de los &#9679 "{{ circles_label }}". Es decir, {{ Constants.liked_gain }}
              {{ Constants.exp_currency }} por cada coordinación en la acción <button class="btn buttonup btn-sm" disabled>violeta</button>
              y {{ Constants.disliked_gain}} {{ Constants.exp_currency }} por cada coordinación en la acción
              <button class="btn buttondown btn-sm" disabled>celeste</button>.
             <br><br>
             Sin embargo, si un jugador en el grupo &#9679 "{{ circles_label }}" se cambia al grupo &#9650 "{{ triangles_label }}",
-             ese jugador ganará {{ Constants.exp_currency }} como un &#9650. Es decir, {{ Constants.liked_gain}} {{ Constants.exp_currency }}
+             ese jugador ganará {{ Constants.exp_currency }} como uno de los &#9650 "{{ triangles_label }}". Es decir, {{ Constants.liked_gain}} {{ Constants.exp_currency }}
              por cada coordinación en la acción <button class="btn buttondown btn-sm" disabled>celeste</button> y
              {{ Constants.disliked_gain}} {{ Constants.exp_currency }} por cada coordinación en la acción
              <button class="btn buttonup btn-sm" disabled>violeta</button>.
             <br><br>
             De la misma manera, si un jugador en el grupo &#9650 "{{ triangles_label }}" se cambia al grupo &#9679 "{{ circles_label }}",
-             ese jugador ganará {{ Constants.exp_currency }} como un &#9679. Es decir, {{ Constants.liked_gain }} {{ Constants.exp_currency }}
+             ese jugador ganará {{ Constants.exp_currency }} como uno de los &#9679 "{{ circles_label }}". Es decir, {{ Constants.liked_gain }} {{ Constants.exp_currency }}
              por cada coordinación en la acción <button class="btn buttonup btn-sm" disabled>violeta</button> y
              {{ Constants.disliked_gain}} {{ Constants.exp_currency }} por cada coordinación en la acción
              <button class="btn buttondown btn-sm" disabled>celeste</button>.
             <br><br>
             Pero si decide quedarse en el grupo &#9650 "{{ triangles_label }}", ese jugador seguirá ganando {{ Constants.exp_currency }}
-             como un &#9650. Es decir, {{ Constants.liked_gain}} {{ Constants.exp_currency }} por cada coordinación en la acción
+             como uno de los &#9650 "{{ triangles_label }}". Es decir, {{ Constants.liked_gain}} {{ Constants.exp_currency }} por cada coordinación en la acción
              <button class="btn buttondown btn-sm" disabled>celeste</button> y {{ Constants.disliked_gain}} {{ Constants.exp_currency }}
              por cada coordinación en la acción <button class="btn buttonup btn-sm" disabled>violeta</button>.
           </p>
@@ -126,8 +126,8 @@
             <h5>Etapa 3: Acciones</h5>
             <b>Esta etapa es igual que en la Parte {{ Constants.part_fixed }}</b>. Cada jugador elige una de dos acciones:
             <button class="btn buttonup btn-sm" disabled>violeta</button>
-            or <button class="btn buttondown btn-sm" disabled>celeste</button> y gana puntos por el número de sus
-            conexiones activas que elija la misma acción.
+            ó <button class="btn buttondown btn-sm" disabled>celeste</button> y gana puntos por cada una de sus
+            conexiones activas que también elija la misma acción.
           </p>
       </div>
     </div>
@@ -152,31 +152,33 @@
           <h4>Antes de continuar, por favor conteste las siguientes preguntas de comprensión: </h4>
           <br>
           <p>
-              <b>1. Usted ha sido asignado a un grupo: &#9679 ó &#9650 (símbolo interno). Con qué frecuencia su grupo cambia?</b>
+              <b>1. Usted ha sido asignado a un grupo: &#9679 "{{ circles_label }}" ó &#9650 "{{ triangles_label }}" (símbolo interno).
+                  Con qué frecuencia puede cambiar su grupo?</b>
               <br>
               <small>{% formfield player.given_group label="" %}</small>
           </p>
           <p>
-              <b>2. Usted tendrá una apariencia: &#9711 ó &#9651 (símbolo externo). Con qué frecuencia su apariencia cambia?</b>
+              <b>2. Usted tendrá una apariencia: &#9711 ó &#9651 (símbolo externo). Con qué frecuencia puede cambiar su apariencia?</b>
               <br>
               <small>{% formfield player.appearance label="" %}</small>
           </p>
           <p>
-              <b>3. Se le asignará una etiqueta entre 1 y {{ names }}. Con qué frecuencia su etiqueta cambia?</b>
+              <b>3. Se le asignará una etiqueta entre 1 y {{ names }}. Con qué frecuencia puede cambiar su etiqueta?</b>
               <br>
               <small>{% formfield player.label label="" %}</small>
           </p>
           <p>
-              <b>4. Imagínese que usted pertenece al grupo &#9679 y cambió de grupo. Luego, usted eligió la acción
-              <button class="btn buttonup btn-sm" disabled>violeta</button> y usted tiene una conexión activa con un jugador
-              que eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button>. Cuántos {{ Constants.exp_currency }}
-              en total recibe usted <i>de esta conexión</i> (sin incluir lo que gana por coordinarse con usted
-              mismo{% if player.treat >= 4 %} el costo por cambiar de grupo{% endif %})?</b>
+              <b>4. Imagínese que usted inició en el grupo &#9679 "{{ circles_label }}" y se cambió al grupo &#9650 "{{ triangles_label }}".
+                  Luego, usted eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button> y usted
+                  tiene una conexión activa con un jugador que eligió la acción
+                  <button class="btn buttonup btn-sm" disabled>violeta</button>. Cuántos {{ Constants.exp_currency }}
+                  en total recibe usted <i>de esta conexión</i> (sin incluir lo que gana por coordinarse con usted
+                  mismo{% if player.treat >= 4 %} el costo por cambiar de grupo{% endif %})?</b>
             <br>
             <small>{% formfield player.pay_coord label="" %}</small>
           </p>
           <p>
-              <b>5. Imagínese que usted pertenece al grupo &#9679 y se quedó en su grupo. Luego, usted eligió la acción
+              <b>5. Imagínese que usted inició en el grupo &#9679 "{{ circles_label }}" y se quedó en su grupo. Luego, usted eligió la acción
               <button class="btn buttonup btn-sm" disabled>violeta</button> y usted tiene una conexión activa con un jugador
               que eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button>. Cuántos {{ Constants.exp_currency }}
               en total recibe usted <i>de esta conexión</i> (sin incluir lo que gana por coordinarse con usted mismo)?</b>

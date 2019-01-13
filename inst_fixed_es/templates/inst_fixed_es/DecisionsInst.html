@@ -17,7 +17,7 @@
         <div class="col-sm-8 border rounded" id="pale">
             <p>
                 <h5>Grupos, Apariencias y Etiquetas</h5>
-                En la Parte {{ Constants.part_fixed }} sted participará con {{ Constants.others }} jugadores más (los mismos
+                En la Parte {{ Constants.part_fixed }} usted participará con {{ Constants.others }} jugadores más (los mismos
                 que en la Parte {{ Constants.part_name }}). Cada jugador ha sido asignado de manera aleatoria a un grupo
                 &#9679 "{{ circles_label }}" ó &#9650 "{{ triangles_label }}" (símbolo interno) y también tendrá una
                 apariencia &#9711 ó &#9651 (símbolo externo). Cada jugador tendrá además una etiqueta numérica del 1 al
@@ -28,15 +28,16 @@
                 <br><br>
                 <img width="70%" src="{% static "inst_fixed_es/Img_B4.png" %}"/>
                 <br>
-                En cada ronda hay {{ Constants.total_circles }} jugadores en el grupo &#9679 y {{ Constants.total_triangles }}
-                en el grupo &#9650. <b>Ni</b> el grupo <b>ni</b> la apariencia de los jugadores <b>cambiará</b> entre rondas durante la
-                Parte {{ Constants.part_fixed }}, mientras que su etiqueta numérica y su posición en la pantalla <b>cambiarán de manera aleatoria
-                en cada ronda</b>.
+                En cada ronda hay {{ Constants.total_circles }} jugadores en el grupo &#9679 "{{ circles_label }}"
+                y {{ Constants.total_triangles }} en el grupo &#9650 "{{ triangles_label }}".
+                <b>Ni</b> el grupo <b>ni</b> la apariencia de los jugadores <b>cambiará</b> entre rondas durante la
+                Parte {{ Constants.part_fixed }}, mientras que su etiqueta numérica y su posición en la pantalla
+                <b>cambiarán de manera aleatoria en cada ronda</b>.
                 <br><br>
-                Por ejemplo, el jugador en el encabezado de arriba está en el grupo &#9679 y tiene la etiqueta numérica 7
-                en la ronda 1. En la ronda 2, el mismo jugador estará en el mismo grupo que antes pero su etiqueta puede
-                ser cualquier número entre 1 y {{ names }}, y podrá estar ubicado en cualquier posición de la pantalla.
-                Lo mismo pasará con todos los demás jugadores.
+                Por ejemplo, el jugador en el encabezado de arriba está en el grupo &#9679 "{{ circles_label }}"
+                y tiene la etiqueta numérica 7 en la ronda 1. En la ronda 2, el mismo jugador estará en el mismo grupo
+                que antes pero su etiqueta puede ser cualquier número entre 1 y {{ names }}, y podrá estar ubicado en
+                cualquier posición de la pantalla. Lo mismo pasará con todos los demás jugadores.
             </p>
         </div>
         <div class="col-sm-4 border rounded" id="network">
@@ -51,7 +52,7 @@
                 <h5>Etapa 1: Conexiones</h5>
                 En la <b>etapa de Conexiones</b> usted podrá proponerle una conexión a cada uno de los jugadores con
                 quienes quiera participar en la Etapa 2. Usted podrá proponerle una conexión a cualquier jugador sin importar
-                su grupo o apariencia. Si usted le propone una conexión a un jugador que <b>también</b> le propone a usted,
+                su grupo o apariencia. Si usted le propone una conexión a un jugador que <b>también</b> le proponga a usted,
                 habrá una <b>conexión activa</b> entre ustedes dos. En la Etapa 2 usted <b>participará únicamente</b> con
                 los jugadores con quienes tenga una conexión activa.
                 <br><br>

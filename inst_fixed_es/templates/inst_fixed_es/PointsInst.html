@@ -17,7 +17,7 @@
         <div class="col-sm-12 border rounded" id="pale">
             <h5>Etapa 3: Resultados</h5>
             <p>
-                En la etapa 3, usted verá los {{ Constants.exp_currency }} que gana esa ronda, los {{ Constants.exp_currency }}
+                En la etapa 3 de cada ronda, usted verá los {{ Constants.exp_currency }} que gana en esa ronda. Los {{ Constants.exp_currency }}
                 son calculados por las ganancias de coordinarse con sus conexiones activas menos el costo de las conexiones
                 que ha propuesto.
                 Una coordinación es una situación en la que usted y otro jugador con quien tenga una conexión activa
@@ -38,26 +38,26 @@
                 jugador si no tienen una conexiones activa juntos aunque elijan la misma acción.
             </p>
             <p>
-            <b>Si su grupo es <b>&#9679</b> y usted:</b>
+            <b>Si su grupo es <b>&#9679 "{{ circles_label }}"</b> y usted:</b>
             <ul>
                 <li>elige <button class="btn buttonup btn-sm" disabled>violeta</button>, usted recibe <b>{{ Constants.liked_gain }} {{ Constants.exp_currency }}</b> por cada
-                    conexión activa que elija <button class="btn buttonup btn-sm" disabled>violeta</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
+                    conexión activa que también elija <button class="btn buttonup btn-sm" disabled>violeta</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
                     cualquier conexión activa que elija <button class="btn buttondown btn-sm" disabled>celeste</button> </li>
                 <br>
                 <li>elige <button class="btn buttondown btn-sm" disabled>celeste</button>, usted recibe <b>{{ Constants.disliked_gain }} {{ Constants.exp_currency }}</b> por cada
-                    conexión activa que elija <button class="btn buttondown btn-sm" disabled>celeste</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
+                    conexión activa que también elija <button class="btn buttondown btn-sm" disabled>celeste</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
                     cualquier conexión activa que elija <button class="btn buttonup btn-sm" disabled>violeta</button> </li>
             </ul>
             </p>
             <p>
-            <b>Si su grupo es <b>&#9650</b> y usted:</b>
+            <b>Si su grupo es <b>&#9650 "{{ triangles_label }}"</b> y usted:</b>
             <ul>
                 <li>elige <button class="btn buttondown btn-sm" disabled>celeste</button>, usted recibe <b>{{ Constants.liked_gain }} {{ Constants.exp_currency }}</b> por cada
-                    conexión activa que elija <button class="btn buttondown btn-sm" disabled>celeste</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
+                    conexión activa que también elija <button class="btn buttondown btn-sm" disabled>celeste</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
                     cualquier conexión activa que elija <button class="btn buttonup btn-sm" disabled>violeta</button> </li>
                 <br>
                 <li>elige <button class="btn buttonup btn-sm" disabled>violeta</button>, usted recibe <b>{{ Constants.disliked_gain }} {{ Constants.exp_currency }}</b> por cada
-                    conexión activa que elija <button class="btn buttonup btn-sm" disabled>violeta</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
+                    conexión activa que también elija <button class="btn buttonup btn-sm" disabled>violeta</button> (incluyéndolo a usted) y <b>0 {{ Constants.exp_currency }}</b> por
                     cualquier conexión activa que elija <button class="btn buttondown btn-sm" disabled>celeste</button> </li>
             </ul>
             </p>
@@ -69,7 +69,8 @@
             <h5>Paso 2: Costos por propuestas</h5>
             <p>
             Sus costos en cada ronda dependen <b>solamente del número de conexiones que usted proponga</b>. Usted paga un
-                costo de <b>{{ Constants.link_cost }} {{ Constants.exp_currency }}</b> por cada propuesta que haga.
+                costo de <b>{{ Constants.link_cost }} {{ Constants.exp_currency }}</b> por cada propuesta que haga,
+                independiente de si el otro jugador también le propone una conexión a usted o no.
             </p>
         </div>
     </div>
@@ -88,12 +89,13 @@
     <div class="row">
         <div class="col-sm-8 border rounded" id="pale">
             <br>
-            <h5>Ejemplo 1: Usted es el Jugador 6, su grupo es <b>&#9679</b> y usted eligió <button class="btn buttonup btn-sm" disabled>violeta</button></h5>
+            <h5>Ejemplo 1: Usted es el Jugador 6, su grupo es <b>&#9679 "{{ circles_label }}"</b> y usted eligió <button class="btn buttonup btn-sm" disabled>violeta</button></h5>
             <p>
             <b>1. Ganancias:</b> Usted tiene 6 coordinaciones (con los jugadores 1, 2, 3, 4, 7 y con usted). Sus 6
-                coordinaciones se multiplican por <b>{{ Constants.liked_gain }}</b> (porque su grupo es &#9679 y usted
-                eligió <button class="btn buttonup btn-sm" disabled>violeta</button>). Usted no se coordinó con el jugador 5, por lo que usted recibirá
-                0 {{ Constants.exp_currency }} de esta conexión activa. Así que usted gana <b>36 {{ Constants.exp_currency }}.</b>
+                coordinaciones se multiplican por <b>{{ Constants.liked_gain }}</b> (porque su grupo es &#9679 "{{ circles_label }}"
+                y usted eligió <button class="btn buttonup btn-sm" disabled>violeta</button>). Usted no se coordinó con
+                el jugador 5, por lo que usted recibirá 0 {{ Constants.exp_currency }} de esta conexión activa.
+                Así que usted gana <b>36 {{ Constants.exp_currency }}.</b>
             <br><br>
             <b>2. Costos:</b> Usted propuso 6 conexiones (a los jugadores 1, 2, 3, 4, 5 y 7), cada una le cuesta {{ Constants.link_cost }}
             {{ Constants.exp_currency }}, así que usted paga <b>12 {{ Constants.exp_currency }}</b>.
@@ -108,10 +110,10 @@
     <div class="row">
         <div class="col-sm-8 border rounded" id="pale">
             <br>
-            <h5>Ejemplo 2: Usted es el Jugador 1, su grupo es <b>&#9650</b> y usted eligió <button class="btn buttondown btn-sm" disabled>celeste</button></h5>
+            <h5>Ejemplo 2: Usted es el Jugador 1, su grupo es <b>&#9650 "{{ triangles_label }}"</b> y usted eligió <button class="btn buttondown btn-sm" disabled>celeste</button></h5>
             <p>
             <b>1. Ganancias:</b> Usted tiene 6 coordinaciones (con 5 de sus conexiones activas y con usted mismo). Sus 6
-                coordinaciones se multiplican por <b>{{ Constants.liked_gain }}</b> (porque su grupo es &#9650 y usted eligió
+                coordinaciones se multiplican por <b>{{ Constants.liked_gain }}</b> (porque su grupo es &#9650 "{{ triangles_label }}" y usted eligió
                 <button class="btn buttondown btn-sm" disabled>celeste</button>). Usted no se coordinó con el jugador 7, por lo que usted recibirá
                 0 {{ Constants.exp_currency }} de esta conexión activa. Así que usted gana <b>36 {{ Constants.exp_currency }}.</b>
             <br><br>
@@ -132,14 +134,14 @@
             <h4>Antes de continuar, por favor conteste las siguientes preguntas de comprensión:</h4>
             <br>
             <p>
-            <b>1. Su grupo es &#9679, usted eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button> y usted tiene una conexión
+            <b>1. Imagínese que su grupo es &#9679 "{{ circles_label }}", usted eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button> y usted tiene una conexión
                 activa con un jugador que eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button>. Cuántos {{ Constants.exp_currency }} en total
                 recibe usted <i>de esta conexión</i> (sin incluir lo que gana por coordinarse con usted mismo)?</b>
             <br>
             <small>{% formfield player.pay_coord label="" %}</small>
             </p>
             <p>
-            <b>2. Su grupo es &#9679, usted eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button> y usted tiene una conexión
+            <b>2. Imagínese que su grupo es &#9679 "{{ circles_label }}", usted eligió la acción <button class="btn buttonup btn-sm" disabled>violeta</button> y usted tiene una conexión
                 activa con un jugador que eligió la acción <button class="btn buttondown btn-sm" disabled>celeste</button>. Cuántos {{ Constants.exp_currency }} en total
                 recibe usted <i>de esta conexión</i> (sin incluir lo que gana por coordinarse con usted mismo)?</b>
             <br>
