@@ -1,1 +1,4 @@
-404: Not Found
+# Created by .ignore support plugin (hsz.mobi)
+.env
+Dockerfile
+docker-compose.yaml
