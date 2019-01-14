@@ -89,7 +89,7 @@
     <div class="row">
         <div class="col-sm-8 border rounded" id="pale">
             <br>
-            <h5>Ejemplo 1: El jugador 6 del grupo es <b>&#9679 "{{ circles_label }}"</b> eligió <button class="btn buttonup btn-sm" disabled>violeta</button></h5>
+            <h5>Ejemplo 1: El jugador 6 del grupo <b>&#9679 "{{ circles_label }}"</b> eligió <button class="btn buttonup btn-sm" disabled>violeta</button></h5>
             <p>
                 <b>1. Ganancias:</b> El jugador formó <b>dos</b> conexiones activas (con los jugadores 2 y 3) y tiene <b>dos</b> coordinaciones
                 (con el jugador 2 y con sí mismo). Las dos coordinaciones se multiplican por <b>{{ Constants.liked_gain }}</b>
@@ -97,7 +97,7 @@
                 <br>
                 El jugador 6 no se coordinó con el jugador 3, por lo que no gana {{ Constants.exp_currency }} con esa
                 conexión activa. El jugador 6 se coordinó con los jugadores 4 y 5, pero no formó conexiones activas con ninguno
-                de ellos, así que puede ganar puntos con ellos. Las ganancias del jugador 6 son <b>12 {{ Constants.exp_currency }}.</b>
+                de ellos, así que no puede ganar puntos con ellos. Las ganancias del jugador 6 son: <b>12 {{ Constants.exp_currency }}.</b>
             <br><br>
                 <b>2. Costos:</b> El jugador 6 propuso <b>cuatro</b> conexiones (a los jugadores 1, 2, 3 y 4), cada una le cuesta {{ Constants.link_cost }}
             {{ Constants.exp_currency }}, así que él paga <b>8 {{ Constants.exp_currency }}</b>.
@@ -112,7 +112,7 @@
     <div class="row">
         <div class="col-sm-8 border rounded" id="pale">
             <br>
-            <h5>Ejemplo 2: El jugador 6 del grupo es <b>&#9679 "{{ circles_label }}"</b> eligió <button class="btn buttondown btn-sm" disabled>celeste</button></h5>
+            <h5>Ejemplo 2: El jugador 6 del grupo <b>&#9679 "{{ circles_label }}"</b> eligió <button class="btn buttondown btn-sm" disabled>celeste</button></h5>
             <p>
                 <b>1. Ganancias:</b> El jugador formó <b>tres</b> conexiones activas (con los jugadores 1, 2 y 3) y tiene <b>dos</b> coordinaciones
                 (con el jugador 1 y con sí mismo). Las dos coordinaciones se multiplican por <b>{{ Constants.disliked_gain }}</b>
@@ -120,7 +120,7 @@
                 <br>
                 El jugador 6 no se coordinó con los jugadores 2 y 5, por lo que no gana {{ Constants.exp_currency }} con esas
                 conexiones activas. El jugador 6 se coordinó con los jugadores 3 y 7, pero no formó conexiones activas con ninguno
-                de ellos, así que puede ganar puntos con ellos. Las ganancias del jugador 6 son <b>8 {{ Constants.exp_currency }}.</b>
+                de ellos, así que no puede ganar puntos con ellos. Las ganancias del jugador 6 son: <b>8 {{ Constants.exp_currency }}.</b>
             <br><br>
                 <b>2. Costos:</b> El jugador 6 propuso <b>cinco</b> conexiones (a los jugadores 1, 2, 3, 4 y 5), cada una le cuesta {{ Constants.link_cost }}
             {{ Constants.exp_currency }}, así que él paga <b>10 {{ Constants.exp_currency }}</b>.
