@@ -192,12 +192,12 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['name_es'],
     #     # 'use_browser_bots': True
     # },
-    # {
-    #     'name': 'inst_fixed_es',
-    #     'display_name': "inst_fixed_es",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['inst_fixed_es'],
-    # },
+    {
+        'name': 'inst_fixed_es',
+        'display_name': "inst_fixed_es",
+        'num_demo_participants': 1,
+        'app_sequence': ['name_es','inst_fixed_es'],
+    },
     # {
     #     'name': 'fixed_es',
     #     'display_name': "fixed_es",

@@ -15,7 +15,7 @@ class Constants(BaseConstants):
     #------------------------------------------
     name_in_url = 'name_es'
     names = ['1','2','3','4','5','6','7']
-    players_per_group = len(names)
+    players_per_group = None #len(names)
     periods = 1
     num_rounds = periods
     #------------------------------------------
