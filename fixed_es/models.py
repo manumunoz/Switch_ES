@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     instructions_template = 'fixed_es/Instructions.html'
-    periods = 1 #10
+    periods = 10
     num_rounds = periods
     #------------------------------------------
     # Treatment & Group parameters
