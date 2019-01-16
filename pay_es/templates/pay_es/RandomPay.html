@@ -30,15 +30,15 @@
       <div class="col-sm-8 border rounded" id="network">
           <p>
           En total, usted ganó {{ player.total_points }} y cada punto será convertido a {{ Constants.currency_exchange }}
-              {{ Constants.currency }}.
-              <br>
-                <br>
-              Además, usted tiene un pago fijo por asistir de {{ Constants.min_pay }} {{ Constants.currency }}
-            <br>
+              {{ Constants.currency }}. A esto se le sumará su pago fijo por asistir ({{ Constants.min_pay }} {{ Constants.currency }}).
+              <br><br>
               Por lo tanto, su pago final es:
             <br>
         <h1>{{ participant.payoff_plus_participation_fee }}</h1>
           <br>
+            <i>Si su pago total es menor a {{ Constants.min_pay }} {{ Constants.currency }} usted tiene asegurado su pago
+                por asistir, así que recibirá {{ Constants.min_pay }} {{ Constants.currency }}</i>
+            <br><br>
             <h6 id="midi">Por favor permanezca sentado hasta que lo llamen para entregarle su pago.</h6>
           </p>
             <button type="otree-btn-next" class="btn button btn-md" style="float: right;"> Terminar </button>
