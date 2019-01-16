@@ -124,8 +124,8 @@ mturk_hit_settings = {
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': 1000,
-    'participation_fee': 0.0, #0.50,
+    'real_world_currency_per_point': 800,
+    'participation_fee': 10000, #0.50,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
 }
@@ -148,7 +148,7 @@ SESSION_CONFIGS = [
         'num_demo_participants': 7,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 2,
-        # 'use_browser_bots': True
+        'use_browser_bots': True
     },
     {
         'name': 'blurry_es',

@@ -13,7 +13,7 @@ Identity Switch - Networks: Instructions FIXED
 
 class Constants(BaseConstants):
     #------------------------------------------
-    name_in_url = 'inst_fixed_en'
+    name_in_url = 'inst_fixed_es'
     names = ['1','2','3','4','5','6','7']
     players_per_group = None #len(names)
     instructions_template = 'inst_fixed_es/Instructions.html'
@@ -33,7 +33,7 @@ class Constants(BaseConstants):
     # Payoffs
     exp_currency = "puntos"
     currency = "pesos"
-    currency_exchange = 1000
+    currency_exchange = 800
     points_exchange = 1
     min_pay = 10000
     link_cost = 2

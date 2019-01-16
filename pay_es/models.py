@@ -13,7 +13,7 @@ Identity Switch - Networks: PAY
 
 class Constants(BaseConstants):
     #------------------------------------------
-    name_in_url = 'pay_en'
+    name_in_url = 'pay_es'
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     periods = 1
@@ -35,10 +35,11 @@ class Constants(BaseConstants):
     # Payoffs
     exp_currency = "puntos"
     currency = "pesos"
-    currency_exchange = 1000
+    currency_exchange = 800
     points_exchange = 1
     min_pay = 10000
     min_points = 10
+    currency_min_pay = c(10000)
     link_cost = 2
     liked_gain = 6
     disliked_gain = 4
@@ -57,10 +58,10 @@ class Group(BaseGroup):
             player.alloc_points = player.participant.vars['part_alloc_payoff']
             player.total_points = player.participant.payoff
 
-            if player.participant.payoff > Constants.min_points:
-                player.participant.payoff = player.participant.payoff
-            else:
-                player.participant.payoff = Constants.min_points
+            # if player.participant.payoff_plus_participation_fee >= Constants.currency_min_pay:
+            #     player.participant.payoff_plus_participation_fee = player.payoff_plus_participation_fee.payoff
+            # else:
+            #     player.participant.payoff_plus_participation_fee = Constants.currency_min_pay
 
 
 class Player(BasePlayer):

@@ -16,11 +16,11 @@ Identity Switch - Networks: FIXED
 
 class Constants(BaseConstants):
     #------------------------------------------
-    name_in_url = 'fixed_en'
+    name_in_url = 'fixed_es'
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     instructions_template = 'fixed_es/Instructions.html'
-    periods = 10
+    periods = 1 #10
     num_rounds = periods
     #------------------------------------------
     # Treatment & Group parameters
@@ -40,7 +40,7 @@ class Constants(BaseConstants):
     # Payoffs
     exp_currency = "puntos"
     currency = "pesos"
-    currency_exchange = 1000
+    currency_exchange = 800
     points_exchange = 1
     link_cost = 2
     liked_gain = 6

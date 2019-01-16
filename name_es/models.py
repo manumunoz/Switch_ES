@@ -37,7 +37,7 @@ class Constants(BaseConstants):
     # Payoffs
     exp_currency = "puntos"
     currency = "pesos"
-    currency_exchange = 1000
+    currency_exchange = 800
     points_exchange = 1
     min_pay = 10000
     link_cost = 2
