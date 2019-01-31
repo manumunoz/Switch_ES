@@ -4,7 +4,7 @@ from .models import Constants
 
 
 class WelcomeInstWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class WelcomeInst(Page):
@@ -14,7 +14,7 @@ class WelcomeInst(Page):
 
 
 class DecisionsInstWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class DecisionsInst(Page):
@@ -46,7 +46,7 @@ class DecisionsInst(Page):
 
 
 class PointsInstWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class PointsInst(Page):
@@ -61,7 +61,6 @@ class PointsInst(Page):
             return 'Un jugador en este grupo recibe 6 puntos por cada coordinación con una conexión activa y paga 2 ' \
                    'puntos por haber propuesto esa conexión'
 
-
     def pay_nocoord_error_message(self, value):
         if value != 3:
             return 'Un jugador no recibe puntos si no se coordina con una conexión activa pero aún así paga 2 puntos por ' \
@@ -69,7 +68,7 @@ class PointsInst(Page):
 
 
 class SummaryInstWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class SummaryInst(Page):

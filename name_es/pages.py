@@ -10,7 +10,7 @@ class WelcomeInst(Page):
 
 
 class NameChoiceWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class NameChoice(Page):
@@ -48,6 +48,8 @@ class NameChoice(Page):
 
 
 class NameOutcomeWP1(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.choosing_names()
         self.group.try_one()
@@ -124,6 +126,8 @@ class NameChoiceT(Page):
 
 
 class NameOutcomeWP2(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.choosing_names()
         self.group.try_two()
@@ -200,6 +204,7 @@ class NameChoiceT2(Page):
 
 
 class NameOutcomeWP3(WaitPage):
+    wait_for_all_groups = True
 
     def after_all_players_arrive(self):
         self.group.choosing_names()

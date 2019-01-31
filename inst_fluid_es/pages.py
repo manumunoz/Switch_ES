@@ -4,7 +4,7 @@ from .models import Constants
 
 
 class WelcomeP2WP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class WelcomeP2(Page):
@@ -14,7 +14,7 @@ class WelcomeP2(Page):
 
 
 class GroupChangeInstWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class GroupChangeInst(Page):
@@ -65,7 +65,7 @@ class GroupChangeInst(Page):
 
 
 class SummaryInstWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class SummaryInst(Page):

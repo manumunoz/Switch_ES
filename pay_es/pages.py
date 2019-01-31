@@ -4,6 +4,8 @@ from .models import Constants
 
 
 class RandomPayWP(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.round_payoffs()
 

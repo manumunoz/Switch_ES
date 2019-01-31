@@ -7,7 +7,7 @@ import json
 
 
 class BeforeTypeWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class Type(Page):
@@ -19,6 +19,8 @@ class Type(Page):
 
 
 class BeforeFormationWP(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.assign_random_names_and_positions()
         self.group.choosing_types()
@@ -41,6 +43,8 @@ class Formation(Page):
 
 
 class BeforeActionWP(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.forming_network()
         self.group.calculate_props_from_and_links() # una vez generada la red, calculo las props from
@@ -58,6 +62,8 @@ class Action(Page):
 
 
 class BeforeResultsWP(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.calculate_actions()
         self.group.sum_coordinations()

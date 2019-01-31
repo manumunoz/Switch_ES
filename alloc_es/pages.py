@@ -4,7 +4,7 @@ from .models import Constants
 
 
 class BeforeAllocationWP(WaitPage):
-    pass
+    wait_for_all_groups = True
 
 
 class Allocation(Page):
@@ -16,6 +16,8 @@ class Allocation(Page):
 
 
 class AllocationWP(WaitPage):
+    wait_for_all_groups = True
+
     def after_all_players_arrive(self):
         self.group.chosen_allocation()
         self.group.set_allocations()
