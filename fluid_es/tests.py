@@ -53,7 +53,8 @@ class PlayerBot(Bot):
         # if self.round_number == 10:
         #     yield (pages.RandomPay)
 
-# otree test switch_p2_t2 --export=switch_p2_test
 
-# otree test sticky_en --export=test_sticky_en
-# otree test sticky_es --export=test_sticky_es
+# App Test
+# otree test fluid_es --export=test_fluid_es
+# Treatment Test
+# otree test name_es --export=test_sticky_es

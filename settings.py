@@ -219,6 +219,7 @@ SESSION_CONFIGS = [
         'num_demo_participants': 14,
         'app_sequence': ['name_es','fluid_es'],
         'treatment': 2,
+        # 'use_browser_bots': True
     },
     # {
     #     'name': 'alloc_es',
