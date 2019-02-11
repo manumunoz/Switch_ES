@@ -17,4 +17,4 @@ class PlayerBot(Bot):
 # App Test
 # otree test alloc_es --export=test_alloc_es
 # Treatment Test
-# otree test name_es --export=test_sticky_es
+# otree test sticky_es --export=test_sticky_es

@@ -39,4 +39,4 @@ class PlayerBot(Bot):
 # App Test
 # otree test name_es --export=test_name_es
 # Treatment Test
-# otree test name_es --export=test_sticky_es
+# otree test sticky_es --export=test_sticky_es

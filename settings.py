@@ -221,13 +221,13 @@ SESSION_CONFIGS = [
     #     'treatment': 2,
     #     # 'use_browser_bots': True
     # },
-    {
-        'name': 'alloc_es',
-        'display_name': "alloc_es",
-        'num_demo_participants': 14,
-        'app_sequence': ['name_es', 'alloc_es'],
-        # 'use_browser_bots': True
-    },
+    # {
+    #     'name': 'alloc_es',
+    #     'display_name': "alloc_es",
+    #     'num_demo_participants': 14,
+    #     'app_sequence': ['name_es', 'alloc_es'],
+    #     # 'use_browser_bots': True
+    # },
 ]
 
 # anything you put after the below line will override
