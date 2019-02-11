@@ -13,4 +13,8 @@ class PlayerBot(Bot):
 
         yield (pages.ClosingPage)
 
-# otree test allocation --export=test_allocation
+
+# App Test
+# otree test alloc_es --export=test_alloc_es
+# Treatment Test
+# otree test name_es --export=test_sticky_es

@@ -16,7 +16,7 @@ class Allocation(Page):
 
 
 class AllocationWP(WaitPage):
-    wait_for_all_groups = True
+    # wait_for_all_groups = True
 
     def after_all_players_arrive(self):
         self.group.chosen_allocation()
