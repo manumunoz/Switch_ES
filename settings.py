@@ -185,18 +185,19 @@ SESSION_CONFIGS = [
     # -------------------------------------------------#
     # -------------  INDIVIDUAL APPS  -----------------#
     # -------------------------------------------------#
-    {
-        'name': 'name_es',
-        'display_name': "name_es",
-        'num_demo_participants': 14,
-        'app_sequence': ['name_es'],
-        # 'use_browser_bots': True
-    },
+    # {
+    #     'name': 'name_es',
+    #     'display_name': "name_es",
+    #     'num_demo_participants': 14,
+    #     'app_sequence': ['name_es'],
+    #     # 'use_browser_bots': True
+    # },
     {
         'name': 'inst_fixed_es',
         'display_name': "inst_fixed_es",
-        'num_demo_participants': 1,
+        'num_demo_participants': 14,
         'app_sequence': ['name_es','inst_fixed_es'],
+        # 'use_browser_bots': True
     },
     # {
     #     'name': 'fixed_es',
