@@ -51,8 +51,8 @@ class NameOutcomeWP1(WaitPage):
     wait_for_all_groups = True
 
     def after_all_players_arrive(self):
-        self.group.choosing_names()
-        self.group.try_one()
+        self.subsession.choosing_names()
+        self.subsession.try_one()
 
 
 class NameChoiceC(Page):
@@ -129,8 +129,8 @@ class NameOutcomeWP2(WaitPage):
     wait_for_all_groups = True
 
     def after_all_players_arrive(self):
-        self.group.choosing_names()
-        self.group.try_two()
+        self.subsession.choosing_names()
+        self.subsession.try_two()
 
 
 class NameChoiceC2(Page):
@@ -207,9 +207,9 @@ class NameOutcomeWP3(WaitPage):
     wait_for_all_groups = True
 
     def after_all_players_arrive(self):
-        self.group.choosing_names()
-        self.group.failed_name_choice()
-        self.group.try_three()
+        self.subsession.choosing_names()
+        self.subsession.failed_name_choice()
+        self.subsession.try_three()
 
 
 class NameOutcome(Page):

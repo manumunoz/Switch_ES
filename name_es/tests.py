@@ -36,4 +36,7 @@ class PlayerBot(Bot):
 
         yield (pages.NameOutcome)
 
-# otree test sticky_es --export=test_sticky_es
+# App Test
+#otree test name_es --export=test_name_es
+# Treatment Test
+# otree test name_es --export=test_sticky_es

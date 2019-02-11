@@ -59,9 +59,90 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
+    # def creating_session(self):
+    #     for p in self.get_players():
+    #         p.given_type = int(Constants.attribute[p.id_in_group - 1])
+
     def creating_session(self):
-        for p in self.get_players():
-            p.given_type = int(Constants.attribute[p.id_in_group - 1])
+        for g in self.get_groups():
+            # assign types
+            for p in g.get_players():
+                p.given_type = int(Constants.attribute[p.id_in_group - 1])
+                p.chat_channel = (10 * g.id_in_subsession) + p.given_type #This works with max. 10 groups
+
+    def choosing_names(self):
+        for g in self.get_groups():
+            if g.total_group_a == Constants.total_circles:
+                g.circles_coord = 1
+                g.circles_name = 1
+                g.circles_label = Constants.group_a
+            elif g.total_group_b == Constants.total_circles:
+                g.circles_coord = 1
+                g.circles_name = 2
+                g.circles_label = Constants.group_b
+            elif g.total_group_c == Constants.total_circles:
+                g.circles_coord = 1
+                g.circles_name = 3
+                g.circles_label = Constants.group_c
+            elif g.total_group_d == Constants.total_circles:
+                g.circles_coord = 1
+                g.circles_name = 4
+                g.circles_label = Constants.group_d
+            elif g.total_group_e == Constants.total_circles:
+                g.circles_coord = 1
+                g.circles_name = 5
+                g.circles_label = Constants.group_e
+
+            if g.total_group_f == Constants.total_triangles:
+                g.triangles_coord = 1
+                g.triangles_name = 6
+                g.triangles_label = Constants.group_f
+            elif g.total_group_g == Constants.total_triangles:
+                g.triangles_coord = 1
+                g.triangles_name = 7
+                g.triangles_label = Constants.group_g
+            elif g.total_group_h == Constants.total_triangles:
+                g.triangles_coord = 1
+                g.triangles_name = 8
+                g.triangles_label = Constants.group_h
+            elif g.total_group_i == Constants.total_triangles:
+                g.triangles_coord = 1
+                g.triangles_name = 9
+                g.triangles_label = Constants.group_i
+            elif g.total_group_j == Constants.total_triangles:
+                g.triangles_coord = 1
+                g.triangles_name = 10
+                g.triangles_label = Constants.group_j
+
+    def failed_name_choice(self):
+        for g in self.get_groups():
+            if g.circles_coord == 0:
+                g.circles_name = 1
+                g.circles_label = Constants.group_a
+            if g.triangles_coord == 0:
+                g.triangles_name = 6
+                g.triangles_label = Constants.group_f
+
+    def try_one(self):
+        for g in self.get_groups():
+            if g.circles_coord == 1:
+                g.circles_try_one = 1
+            if g.triangles_coord == 1:
+                g.triangles_try_one = 1
+
+    def try_two(self):
+        for g in self.get_groups():
+            if g.circles_coord == 1 and g.circles_try_one == 0:
+                g.circles_try_two = 1
+            if g.triangles_coord == 1 and g.triangles_try_one == 0:
+                g.triangles_try_two = 1
+
+    def try_three(self):
+        for g in self.get_groups():
+            if g.circles_coord == 1 and g.circles_try_one == 0 and g.circles_try_two == 0:
+                g.circles_try_three = 1
+            if g.triangles_coord == 1 and g.triangles_try_one == 0 and g.triangles_try_two == 0:
+                g.triangles_try_three = 1
 
 
 class Group(BaseGroup):
@@ -88,78 +169,79 @@ class Group(BaseGroup):
     triangles_try_two = models.PositiveIntegerField(initial=0)
     triangles_try_three = models.PositiveIntegerField(initial=0)
 
-    def choosing_names(self):
-        if self.total_group_a == Constants.total_circles:
-            self.circles_coord = 1
-            self.circles_name = 1
-            self.circles_label = Constants.group_a
-        elif self.total_group_b == Constants.total_circles:
-            self.circles_coord = 1
-            self.circles_name = 2
-            self.circles_label = Constants.group_b
-        elif self.total_group_c == Constants.total_circles:
-            self.circles_coord = 1
-            self.circles_name = 3
-            self.circles_label = Constants.group_c
-        elif self.total_group_d == Constants.total_circles:
-            self.circles_coord = 1
-            self.circles_name = 4
-            self.circles_label = Constants.group_d
-        elif self.total_group_e == Constants.total_circles:
-            self.circles_coord = 1
-            self.circles_name = 5
-            self.circles_label = Constants.group_e
-
-        if self.total_group_f == Constants.total_triangles:
-            self.triangles_coord = 1
-            self.triangles_name = 6
-            self.triangles_label = Constants.group_f
-        elif self.total_group_g == Constants.total_triangles:
-            self.triangles_coord = 1
-            self.triangles_name = 7
-            self.triangles_label = Constants.group_g
-        elif self.total_group_h == Constants.total_triangles:
-            self.triangles_coord = 1
-            self.triangles_name = 8
-            self.triangles_label = Constants.group_h
-        elif self.total_group_i == Constants.total_triangles:
-            self.triangles_coord = 1
-            self.triangles_name = 9
-            self.triangles_label = Constants.group_i
-        elif self.total_group_j == Constants.total_triangles:
-            self.triangles_coord = 1
-            self.triangles_name = 10
-            self.triangles_label = Constants.group_j
-
-    def failed_name_choice(self):
-        if self.circles_coord == 0:
-            self.circles_name = 1
-            self.circles_label = Constants.group_a
-        if self.triangles_coord == 0:
-            self.triangles_name = 6
-            self.triangles_label = Constants.group_f
-
-    def try_one(self):
-        if self.circles_coord == 1:
-            self.circles_try_one = 1
-        if self.triangles_coord == 1:
-            self.triangles_try_one = 1
-
-    def try_two(self):
-        if self.circles_coord == 1 and self.circles_try_one == 0:
-            self.circles_try_two = 1
-        if self.triangles_coord == 1 and self.triangles_try_one == 0:
-            self.triangles_try_two = 1
-
-    def try_three(self):
-        if self.circles_coord == 1 and self.circles_try_one == 0 and self.circles_try_two == 0:
-            self.circles_try_three = 1
-        if self.triangles_coord == 1 and self.triangles_try_one == 0 and self.triangles_try_two == 0:
-            self.triangles_try_three = 1
+    # def choosing_names(self):
+    #     if self.total_group_a == Constants.total_circles:
+    #         self.circles_coord = 1
+    #         self.circles_name = 1
+    #         self.circles_label = Constants.group_a
+    #     elif self.total_group_b == Constants.total_circles:
+    #         self.circles_coord = 1
+    #         self.circles_name = 2
+    #         self.circles_label = Constants.group_b
+    #     elif self.total_group_c == Constants.total_circles:
+    #         self.circles_coord = 1
+    #         self.circles_name = 3
+    #         self.circles_label = Constants.group_c
+    #     elif self.total_group_d == Constants.total_circles:
+    #         self.circles_coord = 1
+    #         self.circles_name = 4
+    #         self.circles_label = Constants.group_d
+    #     elif self.total_group_e == Constants.total_circles:
+    #         self.circles_coord = 1
+    #         self.circles_name = 5
+    #         self.circles_label = Constants.group_e
+    #
+    #     if self.total_group_f == Constants.total_triangles:
+    #         self.triangles_coord = 1
+    #         self.triangles_name = 6
+    #         self.triangles_label = Constants.group_f
+    #     elif self.total_group_g == Constants.total_triangles:
+    #         self.triangles_coord = 1
+    #         self.triangles_name = 7
+    #         self.triangles_label = Constants.group_g
+    #     elif self.total_group_h == Constants.total_triangles:
+    #         self.triangles_coord = 1
+    #         self.triangles_name = 8
+    #         self.triangles_label = Constants.group_h
+    #     elif self.total_group_i == Constants.total_triangles:
+    #         self.triangles_coord = 1
+    #         self.triangles_name = 9
+    #         self.triangles_label = Constants.group_i
+    #     elif self.total_group_j == Constants.total_triangles:
+    #         self.triangles_coord = 1
+    #         self.triangles_name = 10
+    #         self.triangles_label = Constants.group_j
+    #
+    # def failed_name_choice(self):
+    #     if self.circles_coord == 0:
+    #         self.circles_name = 1
+    #         self.circles_label = Constants.group_a
+    #     if self.triangles_coord == 0:
+    #         self.triangles_name = 6
+    #         self.triangles_label = Constants.group_f
+    #
+    # def try_one(self):
+    #     if self.circles_coord == 1:
+    #         self.circles_try_one = 1
+    #     if self.triangles_coord == 1:
+    #         self.triangles_try_one = 1
+    #
+    # def try_two(self):
+    #     if self.circles_coord == 1 and self.circles_try_one == 0:
+    #         self.circles_try_two = 1
+    #     if self.triangles_coord == 1 and self.triangles_try_one == 0:
+    #         self.triangles_try_two = 1
+    #
+    # def try_three(self):
+    #     if self.circles_coord == 1 and self.circles_try_one == 0 and self.circles_try_two == 0:
+    #         self.circles_try_three = 1
+    #     if self.triangles_coord == 1 and self.triangles_try_one == 0 and self.triangles_try_two == 0:
+    #         self.triangles_try_three = 1
 
 
 class Player(BasePlayer):
     given_type = models.IntegerField() # combination of symbol and preference
+    chat_channel = models.IntegerField()
     group_a = models.IntegerField(initial=0)
     group_b = models.IntegerField(initial=0)
     group_c = models.IntegerField(initial=0)
