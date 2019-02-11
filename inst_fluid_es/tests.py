@@ -22,3 +22,8 @@ class PlayerBot(Bot):
         yield (pages.SummaryInst)
 
 # otree test sticky_es --export=test_sticky_es
+
+# App Test
+# otree test inst_fluid_es --export=test_inst_fluid_es
+# Treatment Test
+# otree test name_es --export=test_sticky_es

@@ -195,7 +195,7 @@ SESSION_CONFIGS = [
     {
         'name': 'inst_fixed_es',
         'display_name': "inst_fixed_es",
-        'num_demo_participants': 14,
+        'num_demo_participants': 7,
         'app_sequence': ['name_es','inst_fixed_es'],
         # 'use_browser_bots': True
     },
@@ -206,11 +206,12 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['name_es', 'fixed_es'],
     # },
     # {
-    #     'name': 'inst_fluid_es_',
+    #     'name': 'inst_fluid_es',
     #     'display_name': "inst_fluid_es",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['inst_fluid_es'],
-    #     # 'treatment': 2,
+    #     'num_demo_participants': 14,
+    #     'app_sequence': ['name_es','inst_fluid_es'],
+    #     'treatment': 2,
+    #     # 'use_browser_bots': True
     # },
     # {
     #     'name': 'fluid_es',
