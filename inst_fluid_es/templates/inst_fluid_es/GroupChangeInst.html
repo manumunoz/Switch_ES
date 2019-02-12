@@ -36,7 +36,9 @@
             <br><br>
             Después, en la etapa de <b>Elección de Grupo</b> cada jugador decidirá si quiere quedarse en su grupo o si se quiere cambiar.
             {% if player.treat >= 4 %}
-            <b>Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo de {{ Constants.switch_cost }}
+            <b>Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo de {{ Constants.switch_cost }} más
+                dos veces el número de personas en su grupo que decidan no cambiarse. Por ejemplo, si usted se cambia y dos personas en su
+                grupo no lo hacen, usted paga un costo de 6 + (2x2 personas) = 6+4 = 10.
                 {{ Constants.exp_currency }}.</b>
             {% endif %}
             <br><br>

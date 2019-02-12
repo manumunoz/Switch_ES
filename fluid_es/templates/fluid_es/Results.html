@@ -100,8 +100,8 @@
                         [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
                     {% elif player.switch == 1 %}
-                        Usted se cambió de grupo y eligió la acción <span id="highlight">violeta</span>. Usted tiene
-                        <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">violeta</span>. En total, <span id="lower"> {{ player.own_group_switch }}</span>
+                        personas de su grupo se cambiaron. Usted tiene <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
                         <span id="lower"> {{ player.out_degree }} </span> conexiones:
                         <br>
                         [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =
@@ -115,8 +115,8 @@
                         [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
                     {% elif player.switch == 1 %}
-                        Usted se cambió de grupo y eligió la acción <span id="highlight">celeste</span>. Usted tiene
-                        <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">celeste</span>. En total, <span id="lower"> {{ player.own_group_switch }}</span>
+                        personas de su grupo se cambiaron. Usted tiene <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
                         <span id="lower"> {{ player.out_degree }} </span> conexiones:
                         <br>
                         [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =

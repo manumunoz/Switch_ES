@@ -41,6 +41,9 @@ class BeforeFormationWP(WaitPage):
     def after_all_players_arrive(self):
         self.group.assign_random_names_and_positions()
         self.group.choosing_types()
+        self.group.switching_choice()
+        self.group.summing_switching()
+        self.group.owngroup_switching()
         self.group.switching_costs()
         self.group.displaying_network()
         self.group.summing_types()
@@ -84,8 +87,6 @@ class Action(Page):
 
 
 class BeforeResultsWP(WaitPage):
-    # wait_for_all_groups = True
-
     def after_all_players_arrive(self):
         self.group.calculate_actions()
         self.group.sum_coordinations()
