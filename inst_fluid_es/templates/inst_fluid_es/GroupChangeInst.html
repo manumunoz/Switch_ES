@@ -36,10 +36,19 @@
             <br><br>
             Después, en la etapa de <b>Elección de Grupo</b> cada jugador decidirá si quiere quedarse en su grupo o si se quiere cambiar.
             {% if player.treat >= 4 %}
-            <b>Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo de {{ Constants.switch_cost }} más
-                dos veces el número de personas en su grupo que decidan no cambiarse. Por ejemplo, si usted se cambia y dos personas en su
-                grupo no lo hacen, usted paga un costo de 6 + (2x2 personas) = 6+4 = 10.
-                {{ Constants.exp_currency }}.</b>
+            Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo. El costo tiene dos aspectos.
+            Primero, una parte fija de 6 puntos por cambiarse. Adicionalmente, una parte variable que aumentan dos puntos
+            por cada persona en su grupo (&#9679 ó &#9650) que decida no cambiarse:
+            <br><br>
+            <b>Ejemplo 1.</b> Si usted se cambia y en su grupo no queda nadie sin cambiarse, su costo es sólo la parte fija
+                6 puntos.
+
+            <br>
+            <b>Ejemplo 2.</b> Si usted se cambia y en su grupo quedan dos personas sin cambiarse, su costo es la parte fija
+                (6 puntos) más dos puntos por cada persona que no se cambió (4 puntos). En total usted paga 10 puntos por
+                cambiarse de grupo.
+            <br><br>
+            Así sucesivamente, dependiendo del número de personas que se queden en su grupo el costo aumenta.
             {% endif %}
             <br><br>
             {% if player.treat == 1 or player.treat == 4 %}
@@ -175,7 +184,7 @@
                   tiene una conexión activa con un jugador que eligió la acción
                   <button class="btn buttonup btn-sm" disabled>violeta</button>. Cuántos {{ Constants.exp_currency }}
                   en total recibe usted <i>de esta conexión</i> (sin incluir lo que gana por coordinarse con usted
-                  mismo{% if player.treat >= 4 %} el costo por cambiar de grupo{% endif %})?</b>
+                  mismo{% if player.treat >= 4 %} ni el costo por cambiar de grupo{% endif %})?</b>
             <br>
             <small>{% formfield player.pay_coord label="" %}</small>
           </p>
@@ -193,6 +202,20 @@
               <br>
               <small>{% formfield player.information label="" %}</small>
           </p>
+        {% if player.treat >= 4 %}
+          <p>
+            <b>7. Si usted se cambia de grupo y un participante de su grupo decide no cambiarse. Cuánto paga usted como
+                costo por cambiarse de grupo?</b>
+              <br>
+              <small>{% formfield player.cost_change_one label="" %}</small>
+          </p>
+          <p>
+            <b>7. Si usted se cambia de grupo y todos los participantes de su grupo deciden cambiarse también. Cuánto paga usted como
+                costo por cambiarse de grupo?</b>
+              <br>
+              <small>{% formfield player.cost_change_none label="" %}</small>
+          </p>
+      {% endif %}
             <button type="otree-btn-next" class="btn button btn-md" style="float: right;"> Continuar </button>
           <br><br>
       </div>

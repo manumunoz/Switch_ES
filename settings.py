@@ -213,14 +213,14 @@ SESSION_CONFIGS = [
         'treatment': 5,
         # 'use_browser_bots': True
     },
-    # {
-    #     'name': 'inst_fluid_es',
-    #     'display_name': "inst_fluid_es",
-    #     'num_demo_participants': 14,
-    #     'app_sequence': ['name_es','fluid_es'],
-    #     'treatment': 2,
-    #     # 'use_browser_bots': True
-    # },
+    {
+        'name': 'inst_fluid_es',
+        'display_name': "inst_fluid_es",
+        'num_demo_participants': 7,
+        'app_sequence': ['name_es','inst_fluid_es'],
+        'treatment': 5,
+        # 'use_browser_bots': True
+    },
     # {
     #     'name': 'fluid_es',
     #     'display_name': "fluid_es",

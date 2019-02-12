@@ -104,6 +104,24 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    cost_change_one = models.PositiveIntegerField(
+        choices=[
+            [1, '6 fijos + 2 por 2 personas que no se cambiaron = 10 puntos'],
+            [2, '6 fijos + 0 porque todas las personas cambiaron = 6 puntos'],
+            [3, '6 fijos + 2 por 1 persona que no se cambió = 8 puntos']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+    cost_change_none = models.PositiveIntegerField(
+        choices=[
+            [1, '6 fijos + 2 por 2 personas que no se cambiaron = 10 puntos'],
+            [2, '6 fijos + 0 porque todas las personas cambiaron = 6 puntos'],
+            [3, '6 fijos + 2 por 1 persona que no se cambió = 8 puntos']
+        ],
+        widget=widgets.RadioSelect
+    )
+
     pay_coord = models.PositiveIntegerField(
         choices=[
             [1, 'Yo gano 6 y pago el costo de 2 = 4 puntos en total'],

@@ -19,7 +19,12 @@ class GroupChangeInstWP(WaitPage):
 
 class GroupChangeInst(Page):
     form_model = 'player'
-    form_fields = ['given_group','appearance','label','pay_coord','pay_coord2','information']
+
+    def get_form_fields(self):
+        if self.player.treat <= 3:
+            return ['given_group','appearance','label','pay_coord','pay_coord2','information']
+        else:
+            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one','cost_change_none']
 
     def vars_for_template(self):
         return self.player.vars_for_template()
@@ -51,18 +56,25 @@ class GroupChangeInst(Page):
                    'conexión activa y paga 2 puntos por proponer esa conexión'
 
     def information_error_message(self, value):
-        if self.player.treat == 1:
+        if self.player.treat == 1 or self.player.treat == 4:
             if value != 1:
                 return 'Los demás jugadores verán el grupo que usted haya elegido. También verán su nueva apariencia'
-        elif self.player.treat == 2:
+        elif self.player.treat == 2 or self.player.treat == 5:
             if value != 2:
                 return 'Los demás jugadores verán el grupo que usted haya elegido. También verá  su apariencia que no cambia respecto ' \
                        'a las partes anteriores'
-        elif self.player.treat == 3:
+        elif self.player.treat == 3 or self.player.treat == 6:
             if value != 3:
                 return 'Ls demás jugadores no verán el grupo que usted ha elegido. Pero sí verán su apariencia que no cambia ' \
                        'respecto a las partes anteriores'
 
+    def cost_change_one_error_message(self, value):
+        if value != 3:
+            return 'Usted paga el costo fijo de 6 puntos más dos puntos por la única persona que decidió quedarse en el grupo'
+
+    def cost_change_none_error_message(self, value):
+        if value != 2:
+            return 'Usted paga el costo fijo de 6 puntos y como todos los demás también se cambiaron, no paga ningún costo adicional'
 
 class SummaryInstWP(WaitPage):
     wait_for_all_groups = True
