@@ -24,7 +24,7 @@ class GroupChangeInst(Page):
         if self.player.treat <= 3:
             return ['given_group','appearance','label','pay_coord','pay_coord2','information']
         else:
-            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one','cost_change_none']
+            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one', 'cost_change_none']
 
     def vars_for_template(self):
         return self.player.vars_for_template()
@@ -69,12 +69,14 @@ class GroupChangeInst(Page):
                        'respecto a las partes anteriores'
 
     def cost_change_one_error_message(self, value):
-        if value != 3:
-            return 'Usted paga el costo fijo de 6 puntos más dos puntos por la única persona que decidió quedarse en el grupo'
+        if self.player.treat >= 4:
+            if value != 3:
+                return 'Usted paga el costo fijo de 6 puntos más dos puntos por la única persona que decidió quedarse en el grupo'
 
     def cost_change_none_error_message(self, value):
-        if value != 2:
-            return 'Usted paga el costo fijo de 6 puntos y como todos los demás también se cambiaron, no paga ningún costo adicional'
+        if self.player.treat >= 4:
+            if value != 2:
+                return 'Usted paga el costo fijo de 6 puntos y como todos los demás también se cambiaron, no paga ningún costo adicional'
 
 class SummaryInstWP(WaitPage):
     wait_for_all_groups = True
