@@ -61,7 +61,7 @@ class GroupChangeInst(Page):
                 return 'Los demás jugadores verán el grupo que usted haya elegido. También verán su nueva apariencia'
         elif self.player.treat == 2 or self.player.treat == 5:
             if value != 2:
-                return 'Los demás jugadores verán el grupo que usted haya elegido. También verá  su apariencia que no cambia respecto ' \
+                return 'Los demás jugadores verán el grupo que usted haya elegido. También verán su apariencia que no cambia respecto ' \
                        'a las partes anteriores'
         elif self.player.treat == 3 or self.player.treat == 6:
             if value != 3:

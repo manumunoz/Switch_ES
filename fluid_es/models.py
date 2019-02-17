@@ -48,6 +48,9 @@ class Constants(BaseConstants):
     switch_cost = 6
     switch_free = 0
     #------------------------------------------
+    one = 1
+    zero = 0
+    #------------------------------------------
     # Interdependent Costs
     multiplier = 2
     n_min = 3
@@ -112,7 +115,6 @@ class Group(BaseGroup):
     network_data = models.LongStringField()
     total_circle_switch = models.IntegerField()
     total_triangle_switch = models.IntegerField()
-    own_group_switch = models.IntegerField()
 
     def assign_random_names_and_positions(self):
         name_indexes = random.sample(range(7), 7)
@@ -188,7 +190,7 @@ class Group(BaseGroup):
 
     def switching_choice(self):
         for player in self.get_players():
-            if player.treat == 1:
+            if player.treat == 1 or player.treat == 4:
                 if player.given_type == 1 and player.chosen_type == 5:
                         player.switch = 1
                         player.circle_switch = 1
@@ -199,7 +201,7 @@ class Group(BaseGroup):
                         player.triangle_switch = 1
                 elif player.given_type == 5 and player.chosen_type == 5:
                         player.switch = 0
-            elif player.treat == 2:
+            elif player.treat == 2 or player.treat == 5:
                 if player.given_type == 1 and player.chosen_type == 2:
                         player.switch = 1
                         player.circle_switch = 1
@@ -210,7 +212,7 @@ class Group(BaseGroup):
                         player.triangle_switch = 1
                 elif player.given_type == 5 and player.chosen_type == 5:
                         player.switch = 0
-            elif player.treat == 3:
+            elif player.treat == 3 or player.treat == 6:
                 if player.given_type == 1 and player.chosen_type == 4:
                         player.switch = 1
                         player.circle_switch = 1
@@ -221,39 +223,39 @@ class Group(BaseGroup):
                         player.triangle_switch = 1
                 elif player.given_type == 5 and player.chosen_type == 8:
                         player.switch = 0
-            if player.treat == 4:
-                if player.given_type == 1 and player.chosen_type == 5:
-                        player.switch = 1
-                        player.circle_switch = 1
-                elif player.given_type == 1 and player.chosen_type == 1:
-                        player.switch = 0
-                elif player.given_type == 5 and player.chosen_type == 1:
-                        player.switch = 1
-                        player.triangle_switch = 1
-                elif player.given_type == 5 and player.chosen_type == 5:
-                        player.switch = 0
-            elif player.treat == 5:
-                if player.given_type == 1 and player.chosen_type == 2:
-                        player.switch = 1
-                        player.circle_switch = 1
-                elif player.given_type == 1 and player.chosen_type == 1:
-                        player.switch = 0
-                elif player.given_type == 5 and player.chosen_type == 6:
-                        player.switch = 1
-                        player.triangle_switch = 1
-                elif player.given_type == 5 and player.chosen_type == 5:
-                        player.switch = 0
-            elif player.treat == 6:
-                if player.given_type == 1 and player.chosen_type == 4:
-                        player.switch = 1
-                        player.circle_switch = 1
-                elif player.given_type == 1 and player.chosen_type == 3:
-                        player.switch = 0
-                elif player.given_type == 5 and player.chosen_type == 7:
-                        player.switch = 1
-                        player.triangle_switch = 1
-                elif player.given_type == 5 and player.chosen_type == 8:
-                        player.switch = 0
+            # if player.treat == 4:
+            #     if player.given_type == 1 and player.chosen_type == 5:
+            #             player.switch = 1
+            #             player.circle_switch = 1
+            #     elif player.given_type == 1 and player.chosen_type == 1:
+            #             player.switch = 0
+            #     elif player.given_type == 5 and player.chosen_type == 1:
+            #             player.switch = 1
+            #             player.triangle_switch = 1
+            #     elif player.given_type == 5 and player.chosen_type == 5:
+            #             player.switch = 0
+            # elif player.treat == 5:
+            #     if player.given_type == 1 and player.chosen_type == 2:
+            #             player.switch = 1
+            #             player.circle_switch = 1
+            #     elif player.given_type == 1 and player.chosen_type == 1:
+            #             player.switch = 0
+            #     elif player.given_type == 5 and player.chosen_type == 6:
+            #             player.switch = 1
+            #             player.triangle_switch = 1
+            #     elif player.given_type == 5 and player.chosen_type == 5:
+            #             player.switch = 0
+            # elif player.treat == 6:
+            #     if player.given_type == 1 and player.chosen_type == 4:
+            #             player.switch = 1
+            #             player.circle_switch = 1
+            #     elif player.given_type == 1 and player.chosen_type == 3:
+            #             player.switch = 0
+            #     elif player.given_type == 5 and player.chosen_type == 7:
+            #             player.switch = 1
+            #             player.triangle_switch = 1
+            #     elif player.given_type == 5 and player.chosen_type == 8:
+            #             player.switch = 0
 
     def summing_switching(self):
         players = self.get_players()
@@ -262,152 +264,26 @@ class Group(BaseGroup):
         self.total_circle_switch = sum(switch_cir)
         self.total_triangle_switch = sum(switch_tri)
 
-    def owngroup_switching(self):
+    def ingroup_switching(self):
         for p in self.get_players():
             if p.given_type == 1:
-                p.own_group_switch = self.total_circle_switch
-            elif p.given_type == 5:
-                p.own_group_switch = self.total_triangle_switch
-
+                p.ingroup_switch = self.total_circle_switch
+            else:
+                p.ingroup_switch = self.total_triangle_switch
 
     def switching_costs(self):
         for player in self.get_players():
-            if player.treat == 1:
-                if player.given_type == 1 and player.chosen_type == 5:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 1 and player.chosen_type == 1:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 1:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 5:
-                        player.switch_cost = Constants.switch_free
-            elif player.treat == 2:
-                if player.given_type == 1 and player.chosen_type == 2:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 1 and player.chosen_type == 1:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 6:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 5:
-                        player.switch_cost = Constants.switch_free
-            elif player.treat == 3:
-                if player.given_type == 1 and player.chosen_type == 4:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 1 and player.chosen_type == 3:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 7:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 8:
-                        player.switch_cost = Constants.switch_free
-            if player.treat == 4:
-                if player.given_type == 1 and player.chosen_type == 5:
-                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_maj - player.own_group_switch)
-                elif player.given_type == 1 and player.chosen_type == 1:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 1:
-                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_min - player.own_group_switch)
-                elif player.given_type == 5 and player.chosen_type == 5:
-                        player.switch_cost = Constants.switch_free
-            elif player.treat == 5:
-                if player.given_type == 1 and player.chosen_type == 2:
-                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_maj - player.own_group_switch)
-                elif player.given_type == 1 and player.chosen_type == 1:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 6:
-                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_min - player.own_group_switch)
-                elif player.given_type == 5 and player.chosen_type == 5:
-                        player.switch_cost = Constants.switch_free
-            elif player.treat == 6:
-                if player.given_type == 1 and player.chosen_type == 4:
-                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_maj - player.own_group_switch)
-                elif player.given_type == 1 and player.chosen_type == 3:
-                        player.switch_cost = Constants.switch_free
-                elif player.given_type == 5 and player.chosen_type == 7:
-                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_min - player.own_group_switch)
-                elif player.given_type == 5 and player.chosen_type == 8:
-                        player.switch_cost = Constants.switch_free
-
-    # FIXED COSTS (INDEPENDENT)
-    # def switching_costs(self):
-    #     for player in self.get_players():
-    #         if player.treat == 1:
-    #             if player.given_type == 1 and player.chosen_type == 5:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 1 and player.chosen_type == 1:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 1:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 5:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #         elif player.treat == 2:
-    #             if player.given_type == 1 and player.chosen_type == 2:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 1 and player.chosen_type == 1:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 6:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 5:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #         elif player.treat == 3:
-    #             if player.given_type == 1 and player.chosen_type == 4:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 1 and player.chosen_type == 3:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 7:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 8:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #         if player.treat == 4:
-    #             if player.given_type == 1 and player.chosen_type == 5:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_cost
-    #             elif player.given_type == 1 and player.chosen_type == 1:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 1:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_cost
-    #             elif player.given_type == 5 and player.chosen_type == 5:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #         elif player.treat == 5:
-    #             if player.given_type == 1 and player.chosen_type == 2:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_cost
-    #             elif player.given_type == 1 and player.chosen_type == 1:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 6:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_cost
-    #             elif player.given_type == 5 and player.chosen_type == 5:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #         elif player.treat == 6:
-    #             if player.given_type == 1 and player.chosen_type == 4:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_cost
-    #             elif player.given_type == 1 and player.chosen_type == 3:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
-    #             elif player.given_type == 5 and player.chosen_type == 7:
-    #                     player.switch = 1
-    #                     player.switch_cost = Constants.switch_cost
-    #             elif player.given_type == 5 and player.chosen_type == 8:
-    #                     player.switch = 0
-    #                     player.switch_cost = Constants.switch_free
+            if player.treat == 1 or player.treat == 2 or player.treat == 3:
+                player.switch_cost = 0
+            elif player.treat == 4 or player.treat == 5 or player.treat == 6:
+                if player.given_type == 1 and player.switch == 1:
+                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_maj - player.ingroup_switch)
+                elif player.given_type == 1 and player.switch == 0:
+                        player.switch_cost = 0
+                elif player.given_type == 5 and player.switch == 1:
+                    player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_min - player.ingroup_switch)
+                elif player.given_type == 5 and player.switch == 0:
+                        player.switch_cost = 0
 
     def summing_initial_types(self):
         players = self.get_players()
@@ -440,14 +316,17 @@ class Group(BaseGroup):
 
     def calculate_degree(self):
         for player in self.get_players():
-            player.out_degree = player.prop_to_1 + player.prop_to_2 + player.prop_to_3 + player.prop_to_4 + player.prop_to_5\
-                                + player.prop_to_6 + player.prop_to_7
+            player.out_degree = player.prop_to_1 + player.prop_to_2 + player.prop_to_3 + player.prop_to_4 + player.prop_to_5 +\
+                                player.prop_to_6 + player.prop_to_7
             player.degree = player.link_with_1 + player.link_with_2 + player.link_with_3 + player.link_with_4 + player.link_with_5 + \
                             player.link_with_6 + player.link_with_7
 
     def linking_costs(self):
         for player in self.get_players():
-            player.linking_costs = player.out_degree * Constants.link_cost
+            if player.out_degree >= 1:
+                player.linking_costs = player.out_degree * Constants.link_cost
+            else:
+                player.linking_costs = 0
 
     def calculate_actions(self):
         for player in self.get_players():
@@ -473,7 +352,6 @@ class Group(BaseGroup):
                 player.coordinate_3 = 1
             else:
                 player.coordinate_3 = 0
-
             if player.action == player.action_4 and player.link_with_4 == 1:
                 player.coordinate_4 = 1
             else:
@@ -493,7 +371,7 @@ class Group(BaseGroup):
 
     def coordination_score(self):
         for player in self.get_players():
-            player.coordination_score = Constants.personal + player.coordinate_1 + player.coordinate_2 + \
+            player.coordination_score = 1 + player.coordinate_1 + player.coordinate_2 + \
                                         player.coordinate_3 + player.coordinate_4 + player.coordinate_5 + \
                                         player.coordinate_6 + player.coordinate_7
 
@@ -513,7 +391,7 @@ class Group(BaseGroup):
             if self.subsession.round_number == self.session.vars['paying_round_2']:
                 player.payoff = player.round_gains
             else:
-                player.payoff = 0
+                player.payoff = Constants.switch_free
 
     def round_points(self):
         for player in self.get_players():
@@ -549,7 +427,7 @@ class Player(BasePlayer):
     switch_cost = models.IntegerField()
     circle_switch = models.IntegerField(initial=0)
     triangle_switch = models.IntegerField(initial=0)
-    own_group_switch = models.IntegerField()
+    ingroup_switch = models.IntegerField(initial=0)
 
     def vars_for_template(self):
         return {

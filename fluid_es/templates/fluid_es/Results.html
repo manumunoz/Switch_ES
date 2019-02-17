@@ -9,41 +9,33 @@
               Usted es el jugador <b id="lower"> {{ player.name }}</b> <small>(Ronda {{ subsession.round_number }}
               de {{ Constants.num_rounds}})</small>
         </h2>
-            <h6>
-                {% if player.chosen_type == 1 %}
-                 Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9711</b>
-
-                {% elif player.chosen_type == 2 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9711</b>
-
-                {% elif player.chosen_type == 3 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
-                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
-
-                {% elif player.chosen_type == 4 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
-                y su apariencia es
-                <b id='lower'>&#9711</b> (visible a los demás)
-
-                {% elif player.chosen_type == 5 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9651</b>
-
-                {% elif player.chosen_type == 6 %}
+        <h6>
+            {% if player.chosen_type == 1 %}
                 Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9651</b>
-
-                {% elif player.chosen_type == 7 %}
+                y su apariencia es <b id='lower'>&#9711</b>
+            {% elif player.chosen_type == 2 %}
+                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                y su apariencia es <b id='lower'>&#9711</b>
+            {% elif player.chosen_type == 3 %}
+                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+            {% elif player.chosen_type == 4 %}
+                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+            {% elif player.chosen_type == 5 %}
+                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                y su apariencia es <b id='lower'>&#9651</b>
+            {% elif player.chosen_type == 6 %}
+                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
+                y su apariencia es <b id='lower'>&#9651</b>
+            {% elif player.chosen_type == 7 %}
                 Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
                 y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
-
-                {% else %}
+            {% else %}
                 Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
                 y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
-                {% endif %}
-            </h6>
+            {% endif %}
+        </h6>
       </div>
     </div>
 </div>
@@ -59,7 +51,7 @@
             En esta ronda usted gana:
             <h3 id="highlight">{{ player.round_gains }} {{ Constants.exp_currency }}</h3>
             <small>
-            {% if player.treat <= 3 %}
+            {% if player.treat == 1 or player.treat == 2 or player.treat == 3 %}
                 {% if player.action == 1 %}
                     {% if player.switch == 0 %}
                         Usted eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
@@ -91,7 +83,7 @@
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
                     {% endif %}
                 {% endif %}
-            {% elif player.treat >= 4 %}
+            {% elif player.treat == 4 or player.treat == 5 or player.treat == 6 %}
                 {% if player.action == 1 %}
                     {% if player.switch == 0 %}
                         Usted eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
@@ -100,7 +92,7 @@
                         [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
                     {% elif player.switch == 1 %}
-                        Usted se cambió de grupo y eligió la acción <span id="highlight">violeta</span>. En total, <span id="lower"> {{ player.own_group_switch }}</span>
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">violeta</span>. En total, <span id="lower"> {{ player.ingroup_switch }}</span>
                         personas de su grupo se cambiaron. Usted tiene <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
                         <span id="lower"> {{ player.out_degree }} </span> conexiones:
                         <br>
@@ -115,7 +107,7 @@
                         [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
                     {% elif player.switch == 1 %}
-                        Usted se cambió de grupo y eligió la acción <span id="highlight">celeste</span>. En total, <span id="lower"> {{ player.own_group_switch }}</span>
+                        Usted se cambió de grupo y eligió la acción <span id="highlight">celeste</span>. En total, <span id="lower"> {{ player.ingroup_switch }}</span>
                         personas de su grupo se cambiaron. Usted tiene <span id="lower"> {{ player.coordination_score }}</span> coordinaciones (incluyéndose a usted mismo) y propuso
                         <span id="lower"> {{ player.out_degree }} </span> conexiones:
                         <br>

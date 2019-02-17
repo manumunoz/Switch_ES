@@ -58,4 +58,6 @@ class PlayerBot(Bot):
 # otree test fluid_es --export=test_fluid_es
 # Treatment Test
 # otree test sticky_es --export=test_sticky_es
-# otree test sticky_cost_es --export=sticky_cost_es
+# otree test blurry_es --export=test_blurry_es
+# otree test sticky_cost_es --export=test_sticky_cost_es
+# otree test blurry_cost_es --export=test_blurry_cost_es

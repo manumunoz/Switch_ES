@@ -11,37 +11,29 @@
           </h2>
             <h6>
                 {% if player.chosen_type == 1 %}
-                 Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9711</b>
-
+                     Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9711</b>
                 {% elif player.chosen_type == 2 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9711</b>
-
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9711</b>
                 {% elif player.chosen_type == 3 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
-                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
-
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                        y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
                 {% elif player.chosen_type == 4 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
-                y su apariencia es
-                <b id='lower'>&#9711</b> (visible a los demás)
-
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
                 {% elif player.chosen_type == 5 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9651</b>
-
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9651</b>
                 {% elif player.chosen_type == 6 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                    y su apariencia es <b id='lower'>&#9651</b>
-
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9651</b>
                 {% elif player.chosen_type == 7 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
-                y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
-
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
                 {% else %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
-                y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
                 {% endif %}
             </h6>
       </div>
