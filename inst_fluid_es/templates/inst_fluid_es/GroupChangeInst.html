@@ -36,19 +36,22 @@
             <br><br>
             Después, en la etapa de <b>Elección de Grupo</b> cada jugador decidirá si quiere quedarse en su grupo o si se quiere cambiar.
             {% if player.treat >= 4 %}
-            Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo. El costo tiene dos aspectos.
-            Primero, una parte fija de 6 puntos por cambiarse. Adicionalmente, una parte variable que aumentan dos puntos
-            por cada persona en su grupo (&#9679 ó &#9650) que decida no cambiarse:
-            <br><br>
-            <b>Ejemplo 1.</b> Si usted se cambia y en su grupo no queda nadie sin cambiarse, su costo es sólo la parte fija
-                6 puntos.
-
-            <br>
-            <b>Ejemplo 2.</b> Si usted se cambia y en su grupo quedan dos personas sin cambiarse, su costo es la parte fija
-                (6 puntos) más dos puntos por cada persona que no se cambió (4 puntos). En total usted paga 10 puntos por
-                cambiarse de grupo.
-            <br><br>
-            Así sucesivamente, dependiendo del número de personas que se queden en su grupo el costo aumenta.
+                Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo. El costo tiene dos aspectos.
+                Primero, una parte fija de 6 puntos por cambiarse. Adicionalmente, una parte variable que aumenta dos puntos
+                por cada persona en su grupo (&#9679 ó &#9650) que decida no cambiarse:
+                <br><br>
+                <b>Ejemplo 1.</b> Si usted se cambia y en su grupo <b>no queda nadie</b> sin cambiarse, su costo es sólo la parte fija
+                    (6 puntos).
+                <br><br>
+                <b>Ejemplo 2.</b> Si usted se cambia y en su grupo <b>queda una persona</b> sin cambiarse, su costo es la parte fija
+                    (6 puntos) más dos puntos por la persona que no se cambió (2 puntos). En total usted paga 8 puntos por
+                    cambiarse de grupo.
+                <br><br>
+                <b>Ejemplo 3.</b> Si usted se cambia y en su grupo <b>quedan dos personas</b> sin cambiarse, su costo es la parte fija
+                    (6 puntos) más dos puntos por cada persona que no se cambió (4 puntos). En total usted paga 10 puntos por
+                    cambiarse de grupo.
+                <br><br>
+                Así sucesivamente, dependiendo del número de personas que se queden en su grupo.
             {% endif %}
             <br><br>
             {% if player.treat == 1 or player.treat == 4 %}
@@ -62,7 +65,7 @@
                     un jugador no cambiará aunque cambie su grupo</b>.
             {% endif %}
             <br><br>
-            El ejemplo debajo muestra las decisiones que un jugador puede tomar dependiendo del grupo que al que pertenezca
+            El ejemplo debajo muestra las decisiones que un jugador puede tomar dependiendo del grupo al que pertenezca
             al incio de cada ronda. La imagen encima de cada botón indica cómo los demás jugadores lo verán en las tres
             etapas restantes de esa ronda (Conexiones, Acciones y Resultados) dependiendo de si cambia o se queda en su grupo.
           </p>
@@ -150,7 +153,7 @@
             total de puntos que gana en esa ronda. Los puntos se calculan por las ganancias de coordinarse (las cuales
             dependen del grupo que el jugador haya elegido en esa ronda, de la acción elegida, y del número de
             coordinaciones con sus conexiones activas) menos los costos por proponer conexiones a los
-            demás{% if player.treat >= 4 %}, y menos el costo de cambiarse de grupo (en caso que el jugador haya cambiado
+            demás{% if player.treat >= 4 %}, y menos el costo de cambiarse de grupo (en caso que el jugador se haya cambiado
             de grupo){% endif %}.
           </p>
       </div>

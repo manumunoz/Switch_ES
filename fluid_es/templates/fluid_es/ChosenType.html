@@ -11,27 +11,27 @@
             <h5>
             {% if player.treat == 1 or player.treat == 4 %}
                 {% if player.given_type == 1 %}
-                Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> y su apariencia es
-                    <b id='lower'>&#9711</b>
+                    Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> y su
+                    apariencia es <b id='lower'>&#9711</b>
                 {% elif player.given_type == 5 %}
-                Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> y su apariencia es
-                    <b id='lower'>&#9651</b>
+                    Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> y su
+                    apariencia es <b id='lower'>&#9651</b>
                 {% endif %}
             {% elif player.treat == 2 or player.treat == 5 %}
                 {% if player.given_type == 1 %}
-                Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> y su apariencia es
-                    <b id='lower'>&#9711</b>
+                    Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> y su
+                    apariencia es <b id='lower'>&#9711</b>
                 {% elif player.given_type == 5 %}
-                Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> y su apariencia es
-                    <b id='lower'>&#9651</b>
+                    Su grupo <span id='lower'>inicial </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> y su
+                    apariencia es <b id='lower'>&#9651</b>
                 {% endif %}
             {% elif player.treat == 3 or player.treat == 6 %}
                 {% if player.given_type == 1 %}
-                Su grupo <span id='lower'>inicial </span> (no visible) es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                y su apariencia (visible) es <b id='lower'>&#9711</b>
+                    Su grupo <span id='lower'>inicial </span> (no visible) es <b id='lower'>&#9679 "{{ circles_label }}"</b>
+                    y su apariencia (visible) es <b id='lower'>&#9711</b>
                 {% elif player.given_type == 5 %}
-                Su grupo <span id='lower'>inicial </span> (no visible) es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                y su apariencia (visible) es <b id='lower'>&#9651</b>
+                    Su grupo <span id='lower'>inicial </span> (no visible) es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                    y su apariencia (visible) es <b id='lower'>&#9651</b>
                 {% endif %}
             {% endif %}
             </h5>
@@ -49,8 +49,9 @@
           Presione uno de los botones para <b>elegir un grupo</b>. <i>Usted será ilustrado en la pantalla usando la
           imagen encima del botón que usted presione:
             {% if player.treat >= 4 %}
-            Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo de {{ Constants.switch_cost }}
-                {{ Constants.exp_currency }}.
+                Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo fijo de
+                {{ Constants.switch_cost }} {{ Constants.exp_currency }} más {{ Constants.multiplier }} {{ Constants.exp_currency }}
+                por cada jugador en su grupo que no se haya cambiado.
             {% endif %}
           <br><br>
       </div>

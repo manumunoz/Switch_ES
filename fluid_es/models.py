@@ -223,39 +223,6 @@ class Group(BaseGroup):
                         player.triangle_switch = 1
                 elif player.given_type == 5 and player.chosen_type == 8:
                         player.switch = 0
-            # if player.treat == 4:
-            #     if player.given_type == 1 and player.chosen_type == 5:
-            #             player.switch = 1
-            #             player.circle_switch = 1
-            #     elif player.given_type == 1 and player.chosen_type == 1:
-            #             player.switch = 0
-            #     elif player.given_type == 5 and player.chosen_type == 1:
-            #             player.switch = 1
-            #             player.triangle_switch = 1
-            #     elif player.given_type == 5 and player.chosen_type == 5:
-            #             player.switch = 0
-            # elif player.treat == 5:
-            #     if player.given_type == 1 and player.chosen_type == 2:
-            #             player.switch = 1
-            #             player.circle_switch = 1
-            #     elif player.given_type == 1 and player.chosen_type == 1:
-            #             player.switch = 0
-            #     elif player.given_type == 5 and player.chosen_type == 6:
-            #             player.switch = 1
-            #             player.triangle_switch = 1
-            #     elif player.given_type == 5 and player.chosen_type == 5:
-            #             player.switch = 0
-            # elif player.treat == 6:
-            #     if player.given_type == 1 and player.chosen_type == 4:
-            #             player.switch = 1
-            #             player.circle_switch = 1
-            #     elif player.given_type == 1 and player.chosen_type == 3:
-            #             player.switch = 0
-            #     elif player.given_type == 5 and player.chosen_type == 7:
-            #             player.switch = 1
-            #             player.triangle_switch = 1
-            #     elif player.given_type == 5 and player.chosen_type == 8:
-            #             player.switch = 0
 
     def summing_switching(self):
         players = self.get_players()
@@ -268,8 +235,10 @@ class Group(BaseGroup):
         for p in self.get_players():
             if p.given_type == 1:
                 p.ingroup_switch = self.total_circle_switch
+                p.ingroup_noswitch = Constants.n_maj - p.ingroup_switch
             else:
                 p.ingroup_switch = self.total_triangle_switch
+                p.ingroup_noswitch = Constants.n_min - p.ingroup_switch
 
     def switching_costs(self):
         for player in self.get_players():
@@ -428,6 +397,7 @@ class Player(BasePlayer):
     circle_switch = models.IntegerField(initial=0)
     triangle_switch = models.IntegerField(initial=0)
     ingroup_switch = models.IntegerField(initial=0)
+    ingroup_noswitch = models.IntegerField(initial=0)
 
     def vars_for_template(self):
         return {

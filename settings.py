@@ -140,7 +140,7 @@ SESSION_CONFIGS = [
         'num_demo_participants': 14,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 2,
-        'use_browser_bots': True
+        # 'use_browser_bots': True
     },
     {
         'name': 'blurry_es',
@@ -148,23 +148,25 @@ SESSION_CONFIGS = [
         'num_demo_participants': 14,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 3,
-        'use_browser_bots': True
+        # 'use_browser_bots': True
     },
     {
         'name': 'sticky_cost_es',
         'display_name': "sticky_cost_es",
         'num_demo_participants': 14,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        # 'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'app_sequence': ['name_es', 'inst_fluid_es', 'fluid_es'],
         'treatment': 5,
-        'use_browser_bots': True
+        # 'use_browser_bots': True
     },
     {
         'name': 'blurry_cost_es',
         'display_name': "blurry_cost_es",
         'num_demo_participants': 14,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        # 'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'app_sequence': ['name_es', 'inst_fluid_es', 'fluid_es'],
         'treatment': 6,
-        'use_browser_bots': True
+        # 'use_browser_bots': True
     },
     # {
     #     'name': 'full_es',

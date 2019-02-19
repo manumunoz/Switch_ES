@@ -41,6 +41,11 @@ class Constants(BaseConstants):
     disliked_gain = 4
     switch_cost = 6
     #------------------------------------------
+    # Interdependent Costs
+    multiplier = 2
+    n_min = 3
+    n_maj = 4
+    #------------------------------------------
     # Group Names
     group_a = 'Leones' #Leones
     group_b = 'Tigres' #Tigres

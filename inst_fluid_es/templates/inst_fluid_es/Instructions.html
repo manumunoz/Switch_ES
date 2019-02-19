@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-sm-12 border rounded" style='background-color: #F8F8FF;'>
                     <p>
-                    <b>En la Parte {{ Constants.part_fluid }} usted interactuará con los mismos {{ Constants.others }}
+                        <b>En la Parte {{ Constants.part_fluid }} usted interactuará con los mismos {{ Constants.others }}
                         jugadores de la Parte {{ Constants.part_fixed }}. En cada ronda hay 4 etapas.</b>
                     </p>
                 </div>
@@ -36,8 +36,10 @@
                     {% endif %}
 
                     {% if player.treat >= 4 %}
-                    <b>Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo de {{ Constants.switch_cost }}
-                    {{ Constants.exp_currency }}.</b>
+                        <br><br>
+                        Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo fijo de {{ Constants.switch_cost }}
+                        {{ Constants.exp_currency }} más {{ Constants.multiplier }} {{ Constants.exp_currency }} por cada jugador en su grupo
+                            que decida no cambiarse.
                     {% endif %}
                     </p>
                 </div>
@@ -111,7 +113,7 @@
                     En la etapa 4, usted verá cuántos {{ Constants.exp_currency }} recibe en esa ronda. Los puntos de una
                     ronda se calculan por las ganancias de coordinarse con sus conexiones activas menos los costos de las
                     conexiones que haya propuesto{% if player.treat >= 4 %}, y menos el costo de cambiarse de grupo
-                    (en caso que el jugador haya cambiado de grupo){% endif %}.
+                    (en caso que el jugador se haya cambiado de grupo){% endif %}.
                     </p>
                 </div>
             </div>
