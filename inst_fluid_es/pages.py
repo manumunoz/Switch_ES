@@ -23,8 +23,10 @@ class GroupChangeInst(Page):
     def get_form_fields(self):
         if self.player.treat <= 3:
             return ['given_group','appearance','label','pay_coord','pay_coord2','information']
-        else:
+        elif self.player.treat == 4 or self.player.treat == 5:
             return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one', 'cost_change_none']
+        elif self.player.treat == 6:
+            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one', 'cost_change_none', 'revelation_cost']
 
     def vars_for_template(self):
         return self.player.vars_for_template()
@@ -77,6 +79,12 @@ class GroupChangeInst(Page):
         if self.player.treat >= 4:
             if value != 2:
                 return 'Usted paga el costo fijo de 6 puntos y como todos los demás también se cambiaron, no paga ningún costo adicional'
+
+    def revelation_cost_error_message(self, value):
+        if self.player.treat == 6:
+            if value != 2:
+                return 'Usted no paga ningún costo si no revela su grupo, independiente de si se cambia de grupo o no.'
+
 
 class SummaryInstWP(WaitPage):
     wait_for_all_groups = True

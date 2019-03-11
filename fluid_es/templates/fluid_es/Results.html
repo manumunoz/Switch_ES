@@ -6,34 +6,62 @@
     <div class="row">
       <div class="col-sm-12 border border-dark text-white rounded" id="upper">
         <h2>
-              Usted es el jugador <b id="lower"> {{ player.name }}</b> <small>(Ronda {{ subsession.round_number }}
-              de {{ Constants.num_rounds}})</small>
+          Usted es el jugador <b id="lower"> {{ player.name }}</b> <small>(Ronda {{ subsession.round_number }}
+          de {{ Constants.num_rounds}})</small>
         </h2>
         <h6>
-            {% if player.chosen_type == 1 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                y su apariencia es <b id='lower'>&#9711</b>
-            {% elif player.chosen_type == 2 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                y su apariencia es <b id='lower'>&#9711</b>
-            {% elif player.chosen_type == 3 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
-                y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
-            {% elif player.chosen_type == 4 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
-                y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
-            {% elif player.chosen_type == 5 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
-                y su apariencia es <b id='lower'>&#9651</b>
-            {% elif player.chosen_type == 6 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
-                y su apariencia es <b id='lower'>&#9651</b>
-            {% elif player.chosen_type == 7 %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
-                y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
-            {% else %}
-                Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
-                y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+            {% if player.treat <= 5 %}
+                {% if player.chosen_type == 1 %}
+                     Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9711</b>
+                {% elif player.chosen_type == 2 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9711</b>
+                {% elif player.chosen_type == 3 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                        y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+                {% elif player.chosen_type == 4 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+                {% elif player.chosen_type == 5 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9651</b>
+                {% elif player.chosen_type == 6 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b>
+                        y su apariencia es <b id='lower'>&#9651</b>
+                {% elif player.chosen_type == 7 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                {% else %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                {% endif %}
+            {% elif player.treat == 6 %}
+                {% if player.chosen_type == 3 and player.reveal == 0 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+                {% elif player.chosen_type == 3 and player.reveal == 3 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (visible a los demás)
+                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+                {% elif player.chosen_type == 4 and player.reveal == 0 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+                {% elif player.chosen_type == 4 and player.reveal == 4 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (visible a los demás)
+                    y su apariencia es <b id='lower'>&#9711</b> (visible a los demás)
+                {% elif player.chosen_type == 7 and player.reveal == 0 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                {% elif player.chosen_type == 7 and player.reveal == 7 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9679 "{{ circles_label }}"</b> (visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                {% elif player.chosen_type == 8 and player.reveal == 0 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (no visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                {% elif player.chosen_type == 8 and player.reveal == 8 %}
+                    Su grupo <span id='lower'>elegido </span> es <b id='lower'>&#9650 "{{ triangles_label }}"</b> (visible a los demás)
+                    y su apariencia es <b id='lower'>&#9651</b> (visible a los demás)
+                {% endif %}
             {% endif %}
         </h6>
       </div>
@@ -83,7 +111,7 @@
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
                     {% endif %}
                 {% endif %}
-            {% elif player.treat == 4 or player.treat == 5 or player.treat == 6 %}
+            {% elif player.treat == 4 or player.treat == 5 %}
                 {% if player.action == 1 %}
                     {% if player.switch == 0 %}
                         Usted eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
@@ -113,6 +141,70 @@
                         <br>
                         [<span id="lower">ganancias-costos conexiones - cambio grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }} =
                         {{ player.round_gains }} {{ Constants.exp_currency }}]
+                    {% endif %}
+                {% endif %}
+            {% elif player.treat == 6 %}
+                {% if player.action == 1 %}
+                    {% if player.switch == 0 %}
+                        {% if player.reveal == 0 %}
+                            Usted no reveló su grupo. Eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                       {% elif player.reveal >= 0 %}
+                            Usted reveló su grupo. Eligió la acción <span id="highlight">violeta</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones - revelación grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }}  - {{ player.switch_cost }} =
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                       {% endif %}
+                    {% elif player.switch == 1 %}
+                        {% if player.reveal == 0 %}
+                            Usted se cambió de grupo y no reveló su grupo. Eligió la acción <span id="highlight">violeta</span> y tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo). Usted propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                       {% elif player.reveal >= 0 %}
+                            Usted se cambió de grupo y reveló su grupo. <span id="lower"> {{ player.ingroup_noswitch }}</span> personas de su grupo no se cambiaron.
+                            Eligió la acción <span id="highlight">violeta</span> y tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo). Usted propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones - revelación grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }}=
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                        {% endif %}
+                    {% endif %}
+                {% elif player.action == 0 %}
+                    {% if player.switch == 0 %}
+                        {% if player.reveal == 0 %}
+                            Usted no reveló su grupo. Eligió la acción <span id="highlight">celeste</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                       {% elif player.reveal >= 0 %}
+                            Usted reveló su grupo. Eligió la acción <span id="highlight">celeste</span>. Usted tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo) y propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones - revelación grupo:</span> {{ player.coordination_gains }} - {{ player.linking_costs }}  - {{ player.switch_cost }} =
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                       {% endif %}
+                    {% elif player.switch == 1 %}
+                        {% if player.reveal == 0 %}
+                            Usted se cambió de grupo y no reveló su grupo. Eligió la acción <span id="highlight">celeste</span> y tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo). Usted propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} =
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                       {% elif player.reveal >= 0 %}
+                            Usted se cambió de grupo y reveló su grupo. <span id="lower"> {{ player.ingroup_noswitch }}</span> personas de su grupo no se cambiaron.
+                            Eligió la acción <span id="highlight">celeste</span> y tiene <span id="lower"> {{ player.coordination_score }}</span>
+                            coordinaciones (incluyéndose a usted mismo). Usted propuso <span id="lower"> {{ player.out_degree }} </span> conexiones:
+                            <br>
+                            [<span id="lower">ganancias-costos conexiones:</span> {{ player.coordination_gains }} - {{ player.linking_costs }} - {{ player.switch_cost }}=
+                            {{ player.round_gains }} {{ Constants.exp_currency }}]
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             {% endif %}
@@ -286,6 +378,26 @@
             // Nodes: type == 8
             .selector('node[shape=8]')
             .style('shape', 'triangle')
+            // Nodes Revelation: type == 3
+            .selector('node[reveal=3]')
+            .style('background-image', 'url("{% static "fluid_es/circle.png" %}")')
+            .style('background-image-opacity', '0.7')
+            .style('background-fit', 'contain')
+            // Nodes Revelation: type == 7
+            .selector('node[reveal=7]')
+            .style('background-image', 'url("{% static "fluid_es/circle.png" %}")')
+            .style('background-image-opacity', '0.7')
+            .style('background-fit', 'contain')
+            // Nodes Revelation: type == 4
+            .selector('node[reveal=4]')
+            .style('background-image', 'url("{% static "fluid_es/triangle.png" %}")')
+            .style('background-image-opacity', '0.7')
+            .style('background-fit', 'contain')
+            // Nodes Revelation: type == 8
+            .selector('node[reveal=8]')
+            .style('background-image', 'url("{% static "fluid_es/triangle.png" %}")')
+            .style('background-image-opacity', '0.7')
+            .style('background-fit', 'contain')
             // My Node
             .selector('node[isMine="yes"]')
             .style('width', '35px')

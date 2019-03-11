@@ -10,7 +10,8 @@
                 <div class="col-sm-12 border rounded" style='background-color: #F8F8FF;'>
                     <p>
                         <b>En la Parte {{ Constants.part_fluid }} usted interactuará con los mismos {{ Constants.others }}
-                        jugadores de la Parte {{ Constants.part_fixed }}. En cada ronda hay 4 etapas.</b>
+                        jugadores de la Parte {{ Constants.part_fixed }}. En cada ronda hay {% if player.treat <= 5 %}4
+                            {% elif player.treat == 6 %}5 {% endif %} etapas.</b>
                     </p>
                 </div>
             </div>
@@ -30,12 +31,14 @@
                     {% elif player.treat == 2 or player.treat == 5 %}
                         <b>El símbolo del grupo indicará el grupo que cada jugador ha elegido. La apariencia de un jugador no cambiará
                             aunque se cambie de grupo</b>.
-                    {% elif player.treat == 3 or player.treat == 6 %}
+                    {% elif player.treat == 3 %}
                         <b>El símbolo del grupo no será visible aunque un jugador se cambie o se quede en su grupo. La apariencia de
                             un jugador no cambiará aunque se cambie de grupo</b>.
+                    {% elif player.treat == 6 %}
+                        <b>El símbolo interno indicará el grupo que cada jugador ha elegido, pero sólo será visible si el jugador
+                        ha elegido revelarlo (ver Etapa 2). La apariencia de un jugador no cambiará aunque cambie su grupo</b>.
                     {% endif %}
-
-                    {% if player.treat >= 4 %}
+                    {% if player.treat == 4 or player.treat == 5 %}
                         <br><br>
                         Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo fijo de {{ Constants.switch_cost }}
                         {{ Constants.exp_currency }} más {{ Constants.multiplier }} {{ Constants.exp_currency }} por cada jugador en su grupo
@@ -44,14 +47,38 @@
                     </p>
                 </div>
             </div>
+            {% if player.treat == 6 %}
+                <div class="row">
+                    <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                        <img width="100%" src="{% static "inst_fluid_es/Img_ZZ.png" %}"/>
+                    </div>
+                    <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                        <h5>Etapa 2: Revelación de Grupo</h5>
+                        <p>
+                        Después de la etapa de <b>Elección de Grupo</b>, cada jugador decidirá si quiere revelar el grupo
+                        que ha elegido para que los demás lo vean o no. No revelar su grupo es gratis mientras que revelar
+                        su grupo tiene un costo.
+                        <br><br>
+                        El costo tiene dos aspectos. Primero, una parte fija de 6 puntos por revelar, independientemente
+                        de si eligió cambiarse o quedarse en su grupo. Además, si usted decidió cambiarse de grupo, hay
+                        una parte variable que aumenta dos puntos por cada persona en su grupo (&#9679 ó &#9650) que
+                        decida no cambiarse:
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
             <div class="row">
                 <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
                     <img width="100%" src="{% static "inst_fluid_es/Img_I2.png" %}"/>
                 </div>
                 <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
-                    <h5>Etapa 2: Conexiones</h5>
+                    {% if player.treat <= 5 %}
+                        <h5>Etapa 2: Conexiones</h5>
+                    {% elif player.treat == 6 %}
+                        <h5>Etapa 3: Conexiones</h5>
+                    {% endif %}
                     <p>
-                    En la etapa 2, usted le podrá proponer conexiones a otros jugadores a un costo de {{ Constants.link_cost }}
+                    En esta etapa, usted le podrá proponer conexiones a otros jugadores a un costo de {{ Constants.link_cost }}
                         {{ Constants.exp_currency }}.
                     </p>
                 </div>
@@ -61,9 +88,13 @@
                     <img width="100%" src="{% static "inst_fluid_es/Img_I3.png" %}"/>
                 </div>
                 <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
-                    <h5>Etapa 3: Acciones</h5>
+                    {% if player.treat <= 5 %}
+                        <h5>Etapa 3: Acciones</h5>
+                    {% elif player.treat == 6 %}
+                        <h5>Etapa 4: Acciones</h5>
+                    {% endif %}
                     <p>
-                    En la etapa 3, usted elegirá una acción: <button class="btn buttonup btn-sm" disabled>violeta</button>
+                    En esta etapa, usted elegirá una acción: <button class="btn buttonup btn-sm" disabled>violeta</button>
                         ó <button class="btn buttondown btn-sm" disabled>celeste</button>.
                     Usted ganará {{ Constants.exp_currency }} dependiendo del grupo que usted elija, de la acción
                         que usted elija, y del número de sus conexiones activas que hayan elegido <b>la misma acción</b>
@@ -108,9 +139,13 @@
                     <img width="100%" src="{% static "inst_fluid_es/Img_I4.png" %}"/>
                 </div>
                 <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
-                    <h5>Etapa 4: Resultados</h5>
+                    {% if player.treat <= 5 %}
+                        <h5>Etapa 4: Resultados</h5>
+                    {% elif player.treat == 6 %}
+                        <h5>Etapa 5: Resultados</h5>
+                    {% endif %}
                     <p>
-                    En la etapa 4, usted verá cuántos {{ Constants.exp_currency }} recibe en esa ronda. Los puntos de una
+                    En esta etapa, usted verá cuántos {{ Constants.exp_currency }} recibe en esa ronda. Los puntos de una
                     ronda se calculan por las ganancias de coordinarse con sus conexiones activas menos los costos de las
                     conexiones que haya propuesto{% if player.treat >= 4 %}, y menos el costo de cambiarse de grupo
                     (en caso que el jugador se haya cambiado de grupo){% endif %}.

@@ -29,7 +29,7 @@ class PlayerBot(Bot):
         elif self.player.treat == 6:
             yield (pages.GroupChangeInst,
                    {'given_group': 3, 'appearance': 1, 'label': 2, 'pay_coord': 2, 'pay_coord2': 1, 'information': 3,
-                    'cost_change_one': 3,'cost_change_none': 2})
+                    'cost_change_one': 3,'cost_change_none': 2, 'revelation_cost': 2})
         yield (pages.SummaryInst)
 
 

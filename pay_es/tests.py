@@ -14,3 +14,4 @@ class PlayerBot(Bot):
 # Treatment Test
 # otree test sticky_es --export=test_sticky_es
 # otree test blurry_es --export=test_blurry_es
+# otree test blurry_cost_es --export=test_blurry_cost_es

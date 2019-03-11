@@ -48,10 +48,13 @@
           <h5><span id="lower">En esta ronda:</span> Elija si quiere cambiarse al otro grupo o quedarse en su grupo.</h5>
           Presione uno de los botones para <b>elegir un grupo</b>. <i>Usted será ilustrado en la pantalla usando la
           imagen encima del botón que usted presione:
-            {% if player.treat >= 4 %}
+            {% if player.treat == 4 or player.treat == 5 %}
                 Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo fijo de
                 {{ Constants.switch_cost }} {{ Constants.exp_currency }} más {{ Constants.multiplier }} {{ Constants.exp_currency }}
                 por cada jugador en su grupo que no se haya cambiado.
+            {% elif player.treat == 6 %}
+                En la siguiente pantalla usted puede decidir si revela el grupo que ha elegido o no. Dependiendo de su decisión,
+                se hará visible su símbolo interno.
             {% endif %}
           <br><br>
       </div>
@@ -120,7 +123,17 @@
                     <br>
                     <button name="chosen_type" value="5" class="btn button btn-large"> Quedarme como &#9650 "{{ triangles_label }}"</button>
                 {% endif %}
-            {% elif player.treat == 3 or player.treat == 6 %}
+            {% elif player.treat == 3 %}
+                {% if player.given_type == 1 %}
+                    <img width="100%" src="{% static "fluid_es/Img_T5.jpeg" %}"/>
+                    <br>
+                    <button name="chosen_type" value="3" class="btn button btn-large"> Quedarme como &#9679 "{{ circles_label }}"</button>
+                {% else %}
+                    <img width="100%" src="{% static "fluid_es/Img_T6.jpeg" %}"/>
+                    <br>
+                    <button name="chosen_type" value="8" class="btn button btn-large"> Quedarme como &#9650 "{{ triangles_label }}"</button>
+                {% endif %}
+            {% elif player.treat == 6 %}
                 {% if player.given_type == 1 %}
                     <img width="100%" src="{% static "fluid_es/Img_T5.jpeg" %}"/>
                     <br>

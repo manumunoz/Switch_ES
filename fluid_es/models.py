@@ -68,6 +68,12 @@ class Constants(BaseConstants):
     group_i = 'Zorros' #Zorros
     group_j = 'Perros' #Perros
     #------------------------------------------
+    # # FOR TEST - DELETE AFTERWARDS!!!
+    # circles_name = 1
+    # triangles_name = 6
+    # circles_label ="Leones"
+    # triangles_label = "Perros"
+    # #------------------------------------------
 
 
 class Subsession(BaseSubsession):
@@ -129,7 +135,7 @@ class Group(BaseGroup):
         players = self.get_players()
         players.sort(key=lambda x: x.position)
         return [{'data': {'id': p.name, 'name': p.name, 'action': p.action, 'given': p.given_type,
-                           'shape': p.chosen_type, 'location': p.position, 'treat': p.treat}, 'group': 'nodes'}
+                           'shape': p.chosen_type, 'reveal': p.reveal, 'location': p.position, 'treat': p.treat}, 'group': 'nodes'}
                 for p in players]
 
     def displaying_network(self):
@@ -244,7 +250,7 @@ class Group(BaseGroup):
         for player in self.get_players():
             if player.treat == 1 or player.treat == 2 or player.treat == 3:
                 player.switch_cost = 0
-            elif player.treat == 4 or player.treat == 5 or player.treat == 6:
+            elif player.treat == 4 or player.treat == 5:
                 if player.given_type == 1 and player.switch == 1:
                     player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_maj - player.ingroup_switch)
                 elif player.given_type == 1 and player.switch == 0:
@@ -253,6 +259,18 @@ class Group(BaseGroup):
                     player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_min - player.ingroup_switch)
                 elif player.given_type == 5 and player.switch == 0:
                         player.switch_cost = 0
+            elif player.treat == 6:
+                if player.reveal == 0:
+                    player.switch_cost = 0
+                elif player.reveal > 0:
+                    if player.given_type == 1 and player.switch == 1:
+                        player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_maj - player.ingroup_switch)
+                    elif player.given_type == 1 and player.switch == 0:
+                            player.switch_cost = Constants.switch_cost
+                    elif player.given_type == 5 and player.switch == 1:
+                        player.switch_cost = Constants.switch_cost + Constants.multiplier * (Constants.n_min - player.ingroup_switch)
+                    elif player.given_type == 5 and player.switch == 0:
+                            player.switch_cost = Constants.switch_cost
 
     def summing_initial_types(self):
         players = self.get_players()
@@ -398,6 +416,7 @@ class Player(BasePlayer):
     triangle_switch = models.IntegerField(initial=0)
     ingroup_switch = models.IntegerField(initial=0)
     ingroup_noswitch = models.IntegerField(initial=0)
+    reveal = models.IntegerField()
 
     def vars_for_template(self):
         return {
@@ -407,6 +426,15 @@ class Player(BasePlayer):
             'triangles_label': self.participant.vars['triangles_label'],
             'names': len(Constants.names)
         }
+
+    # def vars_for_template(self):
+    #     return {
+    #         'circles_name': Constants.circles_name,
+    #         'triangles_name': Constants.triangles_name,
+    #         'circles_label': Constants.circles_label,
+    #         'triangles_label': Constants.triangles_label,
+    #         'names': len(Constants.names)
+    #     }
 
     def var_between_apps(self):
         if self.subsession.round_number == self.session.vars['paying_round_2']:

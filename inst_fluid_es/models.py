@@ -58,7 +58,12 @@ class Constants(BaseConstants):
     group_i = 'Zorros' #Zorros
     group_j = 'Perros' #Perros
     #------------------------------------------
-
+    # # FOR TEST - DELETE AFTERWARDS!!!
+    # circles_name = 1
+    # triangles_name = 6
+    # circles_label ="Leones"
+    # triangles_label = "Perros"
+    # #------------------------------------------
 
 class Subsession(BaseSubsession):
     def creating_session(self):
@@ -154,6 +159,16 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    revelation_cost = models.PositiveIntegerField(
+        choices=[
+            [1, '6 puntos'],
+            [2, '0 puntos'],
+            [3, '10 puntos']
+        ],
+        widget=widgets.RadioSelect
+    )
+
+
     def vars_for_template(self):
         return {
             'circles_name': self.participant.vars['circles_name'],
@@ -162,3 +177,12 @@ class Player(BasePlayer):
             'triangles_label': self.participant.vars['triangles_label'],
             'names': len(Constants.names)
         }
+
+    # def vars_for_template(self):
+    #     return {
+    #         'circles_name': Constants.circles_name,
+    #         'triangles_name': Constants.triangles_name,
+    #         'circles_label': Constants.circles_label,
+    #         'triangles_label': Constants.triangles_label,
+    #         'names': len(Constants.names)
+    #     }

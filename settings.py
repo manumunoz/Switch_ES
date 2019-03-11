@@ -137,7 +137,7 @@ SESSION_CONFIGS = [
     {
         'name': 'sticky_es',
         'display_name': "sticky_es",
-        'num_demo_participants': 28,
+        'num_demo_participants': 7,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 2,
         # 'use_browser_bots': True
@@ -145,7 +145,7 @@ SESSION_CONFIGS = [
     {
         'name': 'blurry_es',
         'display_name': "blurry_es",
-        'num_demo_participants': 28,
+        'num_demo_participants': 7,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 3,
         # 'use_browser_bots': True
@@ -153,20 +153,19 @@ SESSION_CONFIGS = [
     {
         'name': 'sticky_cost_es',
         'display_name': "sticky_cost_es",
-        'num_demo_participants': 28,
+        'num_demo_participants': 7,
         'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 5,
         # 'use_browser_bots': True
     },
-    # {
-    #     'name': 'blurry_cost_es',
-    #     'display_name': "blurry_cost_es",
-    #     'num_demo_participants': 14,
-    #     # 'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-    #     'app_sequence': ['name_es', 'inst_fluid_es', 'fluid_es'],
-    #     'treatment': 6,
-    #     # 'use_browser_bots': True
-    # },
+    {
+        'name': 'blurry_cost_es',
+        'display_name': "blurry_cost_es",
+        'num_demo_participants': 28,
+        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'treatment': 6,
+        # 'use_browser_bots': True
+    },
     # {
     #     'name': 'full_es',
     #     'display_name': "full_es",
@@ -211,7 +210,7 @@ SESSION_CONFIGS = [
     #     'display_name': "inst_fluid_es",
     #     'num_demo_participants': 7,
     #     'app_sequence': ['name_es','inst_fluid_es'],
-    #     'treatment': 5,
+    #     'treatment': 6,
     #     # 'use_browser_bots': True
     # },
     # {
@@ -219,13 +218,13 @@ SESSION_CONFIGS = [
     #     'display_name': "fluid_es",
     #     'num_demo_participants': 14,
     #     'app_sequence': ['name_es','fluid_es'],
-    #     'treatment': 2,
+    #     'treatment': 6,
     #     # 'use_browser_bots': True
     # },
     # {
     #     'name': 'alloc_es',
     #     'display_name': "alloc_es",
-    #     'num_demo_participants': 14,
+    #     'num_demo_participants': 7,
     #     'app_sequence': ['name_es', 'alloc_es'],
     #     # 'use_browser_bots': True
     # },

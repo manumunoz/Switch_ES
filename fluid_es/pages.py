@@ -33,6 +33,17 @@ class ChosenType(Page):
         return self.player.vars_for_template()
 
 
+class Revelation(Page):
+    form_model = 'player'
+    form_fields = ['reveal']
+
+    def is_displayed(self):
+        return self.player.treat == 6
+
+    def vars_for_template(self):
+        return self.player.vars_for_template()
+
+
 class BeforeFormationWP(WaitPage):
     def after_all_players_arrive(self):
         self.group.assign_random_names_and_positions()
@@ -107,6 +118,7 @@ page_sequence = [
     Type,
     BeforeChosenTypeWP,
     ChosenType,
+    Revelation,
     BeforeFormationWP,
     Formation,
     BeforeActionWP,

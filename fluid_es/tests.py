@@ -39,6 +39,20 @@ class PlayerBot(Bot):
             yield (pages.ChosenType,
                    {'chosen_type': random.choice([7, 8])})
 
+        if self.player.treat == 6:
+            if self.player.chosen_type == 3:
+                yield (pages.Revelation,
+                       {'reveal': random.choice([0, 3])})
+            elif self.player.chosen_type == 4:
+                yield (pages.Revelation,
+                       {'reveal': random.choice([0, 4])})
+            elif self.player.chosen_type == 7:
+                yield (pages.Revelation,
+                       {'reveal': random.choice([0, 7])})
+            elif self.player.chosen_type == 8:
+                yield (pages.Revelation,
+                       {'reveal': random.choice([0, 8])})
+
         decisions = {}
         for p in self.player.get_others_in_group():
             decisions[p.name] = random.choice([False, True])
@@ -55,7 +69,7 @@ class PlayerBot(Bot):
 
 
 # App Test
-# otree test fluid_es --export=test_fluid_es
+# otree test fluid_esXXX --export=test_fluid_esXXX
 # Treatment Test
 # otree test sticky_es --export=test_sticky_es
 # otree test blurry_es --export=test_blurry_es

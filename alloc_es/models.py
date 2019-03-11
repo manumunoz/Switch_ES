@@ -119,6 +119,7 @@ class Player(BasePlayer):
     given_type = models.IntegerField() # combination of symbol and preference
     alloc_received = models.IntegerField(initial=0)
     points_alloc = models.IntegerField()
+    gender = models.IntegerField()
 
     alloc = models.PositiveIntegerField(
         choices=[0,1,2,3,4,5,6,7,8,9,10]
