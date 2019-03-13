@@ -134,30 +134,30 @@ SESSION_CONFIGS = [
     # --------------------------------------------#
     # -------------  TREATMENTS  -----------------#
     # --------------------------------------------#
-    {
-        'name': 'sticky_es',
-        'display_name': "sticky_es",
-        'num_demo_participants': 7,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-        'treatment': 2,
-        # 'use_browser_bots': True
-    },
-    {
-        'name': 'blurry_es',
-        'display_name': "blurry_es",
-        'num_demo_participants': 7,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-        'treatment': 3,
-        # 'use_browser_bots': True
-    },
-    {
-        'name': 'sticky_cost_es',
-        'display_name': "sticky_cost_es",
-        'num_demo_participants': 7,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-        'treatment': 5,
-        # 'use_browser_bots': True
-    },
+    # {
+    #     'name': 'sticky_es',
+    #     'display_name': "sticky_es",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+    #     'treatment': 2,
+    #     # 'use_browser_bots': True
+    # },
+    # {
+    #     'name': 'blurry_es',
+    #     'display_name': "blurry_es",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+    #     'treatment': 3,
+    #     # 'use_browser_bots': True
+    # },
+    # {
+    #     'name': 'sticky_cost_es',
+    #     'display_name': "sticky_cost_es",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+    #     'treatment': 5,
+    #     # 'use_browser_bots': True
+    # },
     {
         'name': 'blurry_cost_es',
         'display_name': "blurry_cost_es",
