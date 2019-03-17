@@ -24,9 +24,9 @@ class GroupChangeInst(Page):
         if self.player.treat <= 3:
             return ['given_group','appearance','label','pay_coord','pay_coord2','information']
         elif self.player.treat == 4 or self.player.treat == 5:
-            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one', 'cost_change_none']
+            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one','cost_change_none']
         elif self.player.treat == 6:
-            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one', 'cost_change_none', 'revelation_cost']
+            return ['given_group','appearance','label','pay_coord','pay_coord2','information','cost_change_one','cost_change_none','revelation_cost']
 
     def vars_for_template(self):
         return self.player.vars_for_template()

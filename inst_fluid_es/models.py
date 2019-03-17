@@ -177,12 +177,3 @@ class Player(BasePlayer):
             'triangles_label': self.participant.vars['triangles_label'],
             'names': len(Constants.names)
         }
-
-    # def vars_for_template(self):
-    #     return {
-    #         'circles_name': Constants.circles_name,
-    #         'triangles_name': Constants.triangles_name,
-    #         'circles_label': Constants.circles_label,
-    #         'triangles_label': Constants.triangles_label,
-    #         'names': len(Constants.names)
-    #     }
