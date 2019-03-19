@@ -67,7 +67,7 @@ class GroupChangeInst(Page):
                        'a las partes anteriores'
         elif self.player.treat == 3 or self.player.treat == 6:
             if value != 3:
-                return 'Ls demás jugadores no verán el grupo que usted ha elegido. Pero sí verán su apariencia que no cambia ' \
+                return 'Los demás jugadores no verán el grupo que usted ha elegido. Pero sí verán su apariencia que no cambia ' \
                        'respecto a las partes anteriores'
 
     def cost_change_one_error_message(self, value):

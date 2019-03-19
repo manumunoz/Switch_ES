@@ -13,10 +13,10 @@ Identity Switch - Networks: Instructions FLUID
 
 class Constants(BaseConstants):
     #------------------------------------------
-    name_in_url = 'inst_fluid_es'
+    name_in_url = 'inst_blurry'
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
-    instructions_template = 'inst_fluid_es/Instructions.html'
+    instructions_template = 'inst_blurry/Instructions.html'
     periods = 1
     num_rounds = periods
     #------------------------------------------
@@ -121,7 +121,7 @@ class Player(BasePlayer):
     cost_change_none = models.PositiveIntegerField(
         choices=[
             [1, '6 fijos + 2 por 2 personas que no se cambiaron = 10 puntos'],
-            [2, '6 fijos + 0 porque todas las personas cambiaron = 6 puntos'],
+            [2, '6 fijos + 0 porque todas las personas se cambiaron = 6 puntos'],
             [3, '6 fijos + 2 por 1 persona que no se cambió = 8 puntos']
         ],
         widget=widgets.RadioSelect

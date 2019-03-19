@@ -161,8 +161,8 @@ SESSION_CONFIGS = [
     {
         'name': 'blurry_cost_es',
         'display_name': "blurry_cost_es",
-        'num_demo_participants': 28,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'num_demo_participants': 7,
+        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_blurry', 'fluid_es', 'alloc_es', 'pay_es'],
         'treatment': 6,
         # 'use_browser_bots': True
     },
