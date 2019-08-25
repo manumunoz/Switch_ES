@@ -135,13 +135,27 @@ SESSION_CONFIGS = [
     # -------------  TREATMENTS  -----------------#
     # --------------------------------------------#
     # {
-    #     'name': 'sticky_es',
-    #     'display_name': "sticky_es",
+    #     'name': 'fixed_en',
+    #     'display_name': "fixed_en",
     #     'num_demo_participants': 7,
-    #     'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
-    #     'treatment': 2,
-    #     # 'use_browser_bots': True
+    #     'app_sequence': ['name_en', 'fixed_en'],
     # },
+    {
+        'name': 'sticky_en',
+        'display_name': "sticky_en",
+        'num_demo_participants': 7,
+        'app_sequence': ['name_en', 'inst_fixed_en', 'fixed_en', 'inst_fluid_en', 'fluid_en', 'alloc_en', 'pay_en'],
+        'treatment': 2,
+        # 'use_browser_bots': True
+    },
+    {
+        'name': 'sticky_es',
+        'display_name': "sticky_es",
+        'num_demo_participants': 7,
+        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_fluid_es', 'fluid_es', 'alloc_es', 'pay_es'],
+        'treatment': 2,
+        # 'use_browser_bots': True
+    },
     # {
     #     'name': 'blurry_es',
     #     'display_name': "blurry_es",
@@ -158,14 +172,14 @@ SESSION_CONFIGS = [
     #     'treatment': 5,
     #     # 'use_browser_bots': True
     # },
-    {
-        'name': 'blurry_cost_es',
-        'display_name': "blurry_cost_es",
-        'num_demo_participants': 28,
-        'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_blurry', 'fluid_es', 'alloc_es', 'pay_es'],
-        'treatment': 6,
-        # 'use_browser_bots': True
-    },
+    # {
+    #     'name': 'blurry_cost_es',
+    #     'display_name': "blurry_cost_es",
+    #     'num_demo_participants': 7,
+    #     'app_sequence': ['name_es', 'inst_fixed_es', 'fixed_es', 'inst_blurry', 'fluid_es', 'alloc_es', 'pay_es'],
+    #     'treatment': 6,
+    #     # 'use_browser_bots': True
+    # },
     # {
     #     'name': 'full_es',
     #     'display_name': "full_es",

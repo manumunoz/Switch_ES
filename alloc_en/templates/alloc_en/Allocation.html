@@ -1,0 +1,150 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 border border-dark text-white rounded" id="upper">
+          <h2>Part {{ Constants.part_alloc }}: <span id="lower"> Allocation </span></h2>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12 border border-dark rounded mb-1" id="pale">
+          <h5>Instructions Part {{ Constants.part_alloc }}.</h5>
+
+          This is the last part of the experiment and is played for a single round. In this round, you will be endowed with
+          {{ Constants.pie }} {{ Constants.exp_currency }} and you have to decide how you want to distribute the points between
+          two players who have been randomly matched with you: Players <b>A</b> and <b>B</b>.
+
+          <br><br>
+
+          Player <b>A</b> is one of the players assigned to group <span id='symbol'>&#9679</span> "{{ circles_label }}"
+          in Parts {{ Constants.part_name }} and {{ Constants.part_fixed }}. Player <b>B</b> is one of the players
+          assigned to group <span id='symbol'>&#9650</span> "{{ triangles_label }}" in Parts
+          {{ Constants.part_name }} and {{ Constants.part_fixed }}.
+
+          <br><br>
+
+          The computer will randomly choose the allocation decision of one of the {{ Constants.players }}
+          players who have participated together in the experiment, and will implement the payment of that decision. For
+          instance, if your decision is chosen, players <b>A</b> and <b>B</b> matched with you will receive the points
+          you have allocated to them. None of the other 5 players (including yourself) will receive any points in this part.
+          Similarly, if another player's decision is chosen and you are one of the players <b>A</b> or <b>B</b> matched
+          with him, you will receive the points allocated to you.
+
+          <br><br>
+
+      </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-2 border border-dark rounded mb-1" id="network">
+        <div>
+            <br>
+            <b>Player A.</b>
+            <br><br>
+            <img width="100%" src="{% static "alloc_en/Img_T1.jpeg" %}"/>
+        </div>
+      </div>
+      <div class="col-sm-2 border border-dark rounded mb-1" id="network">
+        <div>
+            <br>
+            <b>Player B.</b>
+            <br><br>
+            <img width="100%" src="{% static "alloc_en/Img_T2.jpeg" %}"/>
+        </div>
+      </div>
+      <div class="col-sm-8 border border-dark rounded mb-1" id="network">
+        <div>
+            <br>
+            <p>
+                <b>Decision:</b> You have{{ Constants.pie }} {{ Constants.exp_currency }} to allocate between players A y B.
+              Press the button with the allocation you prefer.
+            </p>
+            <div id="center">
+                <input type="hidden" value="0" name="alloc" id="alloc"/>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(0)">0 to A and 10 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(1)">1 to A and 9 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(2)">2 to A and 8 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(3)">3 to A and 7 to B</button>
+                <br>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(4)">4 to A and 6 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(5)">5 to A and 5 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(6)">6 to A andy 4 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(7)">7 to A and 3 to B</button>
+                <br>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(8)">8 to A and 2 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(9)">9 to A and 1 to B</button>
+                <button type="otree-btn-next" class="btn button btn-sm" onclick="$('#alloc').val(10)">10 to A and 0 to B</button>
+            </div>
+            <br>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block styles %}
+    <style type="text/css">
+        #center {
+            text-align: center;
+        }
+        .button {
+            background-color: #000000;
+            color: #EEE8AA;
+            border: 2px solid #EEE8AA;
+        }
+        .button:hover {
+            background-color: #EEE8AA;
+            color: #000000;
+            border: 2px solid #000000
+        }
+        #upper{
+            background-color: #000000;
+        }
+        #middle{
+            background-color: #424242;
+        }
+        #lower{
+            color: #EEE8AA
+        }
+        #network{
+            background-color: #ffffff;
+        }
+        #pale{
+            background-color: #F5F5F5;
+        }
+        .buttonup {
+            background-color: #9C27B0;
+            color: #ffffff;
+            border: 1px solid #AD1457;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+        .buttondown {
+            background-color: #00BCD4;
+            color: #ffffff;
+            border: 1px solid #00838F;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+        .button_inst {
+            background-color: #EEE8AA;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+    </style>
+{% endblock %}
