@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
       <div class="col-sm-12 border border-dark text-white rounded" id="upper">
-          <h2>Parte {{ Constants.part_name }}: <span id="lower"> Su grupo</span> (segundo intento)</h2>
+          <h2>Part {{ Constants.part_name }}: <span id="lower"> Your group</span> (second attempt)</h2>
       </div>
     </div>
 </div>
@@ -17,9 +17,9 @@
         <div class="col-sm-12 border rounded" id="network">
             <div>
               <p>
-                  <b>No todos los {{ Constants.total_triangles }} jugadores en su grupo presionaron en el mismo botón. Por favor elija de nuevo.</b>
+                  <b>Not all {{ Constants.total_triangles }} players in your group clicked on the same button. Please choose again.</b>
                   <br><br>
-                    <i>Escriba en la caja de chat para comunicarse con los otros jugadores en su grupo.</i>
+              <i>Write on the chat box to communicate with the other players in your group.</i>
               </p>
             </div>
             <div>
@@ -28,7 +28,7 @@
             <div id="centering">
                 <br>
               <p>
-                <b>Presione el botón con el nombre que su grupo ha elegido</b>.
+              <b>Click on the button with the name chosen by your group</b>.
               </p>
                 <input type="hidden" value="0" name="group_name" id="group_name"/>
                 {% if player.given_type == 1 %}

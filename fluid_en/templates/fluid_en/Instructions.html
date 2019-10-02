@@ -1,0 +1,168 @@
+{% load otree staticfiles %}
+{% load static %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h2> Instructions Part {{ Constants.part_fluid }}</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 border rounded" style='background-color: #F8F8FF;'>
+                    <p>
+                        <b>In Part {{ Constants.part_fluid }} you will interact with the same {{ Constants.others }}
+                        players from Part {{ Constants.part_fixed }}. There are {% if player.treat <= 5 %}4
+                            {% elif player.treat == 6 %}5 {% endif %} stages in each round.</b>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                    <img width="100%" src="{% static "fluid_en/Img_I1.jpeg" %}"/>
+                </div>
+                <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                    <h5>Stage 1: Group Choice</h5>
+                    <p>
+                    At the beginning of each round, <b>before Stage 1</b>, you and all other players will be assigned
+                    to the same group they belonged to in Part {{ Constants.part_fixed }}. In Stage 1 you will choose a group.
+                    You can stay in the group same group you have been assigned to or you can change groups.
+                    {% if player.treat == 1 or player.treat == 4 %}
+                        <b>The group symbol will indicate the group each player has chosen. A player's appearance will
+                            change if he changes his group</b>.
+                    {% elif player.treat == 2 or player.treat == 5 %}
+                        <b>The group symbol will indicate the group each player has chosen. A player's appearance will
+                            not change when he changes his group</b>.
+                    {% elif player.treat == 3 %}
+                        <b>The group symbol will not be visible whether a player changes or stays in his group. A player's appearance will
+                            not change when he changes his group</b>.
+                    {% elif player.treat == 6 %}
+                        <b>The group symbol will indicate the group each player has chosen, but will only be visible if the player has
+                            chosen to reveal it (see Stage 2).  A player's appearance will not change when he changes his group</b>.
+                    {% endif %}
+                    {% if player.treat == 4 or player.treat == 5 %}
+                        <br><br>
+                        Quedarse en el mismo grupo es gratis mientras que cambiarse de grupo tiene un costo fijo de {{ Constants.switch_cost }}
+                        {{ Constants.exp_currency }} más {{ Constants.multiplier }} {{ Constants.exp_currency }} for each jugador en su grupo
+                            que decida no cambiarse.
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+            {% if player.treat == 6 %}
+                <div class="row">
+                    <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                        <img width="100%" src="{% static "fluid_en/Img_ZZ.png" %}"/>
+                    </div>
+                    <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                        <h5>Etapa 2: Revelación de Grupo</h5>
+                        <p>
+                        Después de la etapa de <b>Elección de Grupo</b>, cada jugador decidirá si quiere revelar el grupo
+                        que ha elegido para que los demás lo vean o no. No revelar su grupo es gratis mientras que revelar
+                        su grupo tiene un costo.
+                        <br><br>
+                        El costo tiene dos aspectos. Primero, una parte fija de 6 puntos por revelar, independientemente
+                        de si eligió cambiarse o quedarse en su grupo. Además, si usted decidió cambiarse de grupo, hay
+                        una parte variable que aumenta dos puntos for each persona en su grupo (&#9679 ó &#9650) que
+                        decida no cambiarse:
+                        </p>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                    <img width="100%" src="{% static "fluid_en/Img_I2.png" %}"/>
+                </div>
+                <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                    {% if player.treat <= 5 %}
+                        <h5>Stage 2: Connections</h5>
+                    {% elif player.treat == 6 %}
+                        <h5>Etapa 3: Conexiones</h5>
+                    {% endif %}
+                    <p>
+                    In this stage, you can propose connections to the other players at a cost of {{ Constants.link_cost }}
+                        {{ Constants.exp_currency }}.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                    <img width="100%" src="{% static "fluid_en/Img_I3.jpeg" %}"/>
+                </div>
+                <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                    {% if player.treat <= 5 %}
+                        <h5>Stage 3: Actions</h5>
+                    {% elif player.treat == 6 %}
+                        <h5>Stage 4: Actions</h5>
+                    {% endif %}
+                    <p>
+                   In this stage, you choose an action: <button class="btn button1 btn-sm" disabled>Cyan</button>
+                        or <button class="btn button2 btn-sm" disabled>Terra</button>.
+                        You will earn {{ Constants.exp_currency }} depending on the group you choose, the action you choose,
+                        and the number of your active connections choosing <b>the same action</b> as you:
+                    </p>
+                    <p>
+                    <b>If your chosen group is <b>&#9679 "{{ circles_label }}"</b> and you:</b>
+                    <ul>
+                        <li>choose <button class="btn button1 btn-sm" disabled>Cyan</button>, you get
+                            <b>{{ Constants.liked_gain }} {{ Constants.exp_currency }}</b> for each
+                            active connection choosing <button class="btn button1 btn-sm" disabled>Cyan</button> (including yourself)
+                            and <b>0 {{ Constants.exp_currency }}</b> for any
+                            active connection choosing <button class="btn button2 btn-sm" disabled>Terra</button> </li>
+                        <br>
+                        <li>choose <button class="btn button2 btn-sm" disabled>Terra</button>, you get
+                            <b>{{ Constants.disliked_gain }} {{ Constants.exp_currency }}</b> for each
+                            active connection choosing <button class="btn button2 btn-sm" disabled>Terra</button> (including yourself)
+                            and <b>0 {{ Constants.exp_currency }}</b> for any active connection choosing
+                            <button class="btn button1 btn-sm" disabled>Cyan</button> </li>
+                    </ul>
+                    </p>
+                    <p>
+                    <b>If your chosen group is <b>&#9650 "{{ triangles_label }}"</b>  and you:</b>
+                    <ul>
+                        <li>choose <button class="btn button2 btn-sm" disabled>Terra</button>, you get
+                            <b>{{ Constants.liked_gain }} {{ Constants.exp_currency }}</b> for each
+                            active connection choosing <button class="btn button2 btn-sm" disabled>Terra</button> (including yourself)
+                            and <b>0 {{ Constants.exp_currency }}</b> for any active connection choosing <button class="btn button1 btn-sm" disabled>Cyan</button> </li>
+                        <br>
+                        <li>choose <button class="btn button1 btn-sm" disabled>Cyan</button>, you get
+                            <b>{{ Constants.disliked_gain }} {{ Constants.exp_currency }}</b> for each
+                            active connection choosing <button class="btn button1 btn-sm" disabled>Cyan</button> (including yourself)
+                            and <b>0 {{ Constants.exp_currency }}</b> for any active connection choosing <button class="btn button2 btn-sm" disabled>Terra</button> </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                    <img width="100%" src="{% static "fluid_en/Img_I4.jpeg" %}"/>
+                </div>
+                <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                    {% if player.treat <= 5 %}
+                        <h5>Stage 4: Results</h5>
+                    {% elif player.treat == 6 %}
+                        <h5>Stage 5: Results</h5>
+                    {% endif %}
+                    <p>
+                    In this stage, you will see how many {{ Constants.exp_currency }} you get in that round.
+                    Points are calculated by the gains from coordination with your active connections minus the costs of
+                        the connections you have proposed{% if player.treat >= 4 %}, y menos el costo de cambiarse de grupo
+                    (en caso que el jugador se haya cambiado de grupo){% endif %}.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 border text-white rounded" style='background-color: #ffffff;'>
+                    <img width="100%" src="{% static "fluid_en/Img_I5.png" %}"/>
+                </div>
+                <div class="col-sm-9 border rounded" style='background-color: #F8F8FF;'>
+                    <h5>Earnings in Part {{ Constants.part_fluid }}</h5>
+                    <p>
+                    You will participate for {{ Constants.rounds_fixed }} rounds in Part {{ Constants.part_fluid }}.
+                    At the end of the experiment the computer <b>will randomly select one of the {{ Constants.rounds_fixed }} rounds</b>.
+                    The number of {{ Constants.exp_currency }} you got in the selected round will be added to the total number of points
+                    used to determine your payment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

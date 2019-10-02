@@ -13,10 +13,10 @@ Identity Switch - Networks: Instructions FIXED
 
 class Constants(BaseConstants):
     #------------------------------------------
-    name_in_url = 'inst_fixed_es'
+    name_in_url = 'inst_fixed_en'
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
-    instructions_template = 'inst_fixed_es/Instructions.html'
+    instructions_template = 'inst_fixed_en/Instructions.html'
     periods = 1
     num_rounds = periods
     #------------------------------------------
@@ -31,7 +31,7 @@ class Constants(BaseConstants):
     rounds_fixed = 10
     #------------------------------------------
     # Payoffs
-    exp_currency = "puntos"
+    exp_currency = "points"
     currency = "pesos"
     currency_exchange = 800
     points_exchange = 1
@@ -41,16 +41,16 @@ class Constants(BaseConstants):
     disliked_gain = 4
     #------------------------------------------
     # Group Names
-    group_a = 'Leones' #Leones
-    group_b = 'Tigres' #Tigres
-    group_c = 'Leopardos' #Leopardos
-    group_d = 'Jaguares' #Jaguares
-    group_e = 'Gatos' #Gatos
+    group_a = 'Lions' #Leones
+    group_b = 'Tigers' #Tigres
+    group_c = 'Leopards' #Leopardos
+    group_d = 'Jaguars' #Jaguares
+    group_e = 'Cats' #Gatos
     group_f = 'Coyotes' #Coyotes
-    group_g = 'Chacales' #Chacales
-    group_h = 'Lobos' #Lobos
-    group_i = 'Zorros' #Zorros
-    group_j = 'Perros' #Perros
+    group_g = 'Jackals' #Chacales
+    group_h = 'Wolves' #Lobos
+    group_i = 'Foxes' #Zorros
+    group_j = 'Dogs' #Perros
     #------------------------------------------
 
 
@@ -66,36 +66,36 @@ class Player(BasePlayer):
 
     given_group = models.PositiveIntegerField(
         choices=[
-            [1, 'Está fijo y no cambia'],
-            [2, 'El computador lo cambia en cada ronda'],
-            [3, 'Yo lo puedo cambiar en cada ronda'],
+            [1, 'It is fixed and does not change'],
+            [2, 'The computer changes it in each round'],
+            [3, 'I can change it in each round'],
         ],
         widget=widgets.RadioSelect
     )
 
     appearance = models.PositiveIntegerField(
         choices=[
-            [1, 'Está fija y no cambia'],
-            [2, 'El computador la cambia en cada ronda'],
-            [3, 'Yo la puedo cambiar en cada ronda al cambiar mi grupo'],
+            [1, 'It is fixed and does not change'],
+            [2, 'The computer changes it in each round'],
+            [3, 'I can change it in each round by changing my group'],
         ],
         widget=widgets.RadioSelect
     )
 
     label = models.PositiveIntegerField(
         choices=[
-            [1, 'Está fija y no cambia'],
-            [2, 'El computador la cambia en cada ronda'],
-            [3, 'Yo la puedo cambiar en cada ronda'],
+            [1, 'It is fixed and does not change'],
+            [2, 'The computer changes it in each round'],
+            [3, 'I can change it in each round'],
         ],
         widget=widgets.RadioSelect
     )
 
     active = models.PositiveIntegerField(
         choices=[
-            [1, 'Cuando yo le propongo una relación a otro jugador sin importar si este me propone una relación a mí'],
-            [2, 'Cuando otro jugador me propone una relación a mí sin importar si yo le propongo una relación a él'],
-            [3, 'Cuando yo le propongo una relación a otro jugador que también me propone una relación a mí']
+            [1, 'When I propose a relation to another player regardless of he/she proposing a relation to me'],
+            [2, 'When another player proposes a relation to me regardless of me proposing a relation to him/her'],
+            [3, 'When I propose a relation to a player who also proposes a relation to me']
         ],
         widget=widgets.RadioSelect
     )
@@ -111,18 +111,18 @@ class Player(BasePlayer):
 
     pay_coord = models.PositiveIntegerField(
         choices=[
-            [1, 'Yo gano 6 y pago el costo de 2 = 4 puntos en total'],
-            [2, 'Yo gano 4 y pago el costo de 2 = 2 puntos en total'],
-            [3, 'Yo gano 0 y pago el costo de 2 = -2 puntos en total']
+            [1, 'I gain 6 and pay the cost of 2 = 4 points in total'],
+            [2, 'I gain 4 and pay the cost of 2 = 2 points in total'],
+            [3, 'I gain 0 and pay the cost of 2 = -2 points in total']
         ],
         widget=widgets.RadioSelect
     )
 
     pay_nocoord = models.PositiveIntegerField(
         choices=[
-            [1, 'Yo gano 6 y pago el costo de 2 = 4 puntos en total'],
-            [2, 'Yo gano 4 y pago el costo de 2 = 2 puntos en total'],
-            [3, 'Yo gano 0 y pago el costo de 2 = -2 puntos en total']
+            [1, 'I gain 6 and pay the cost of 2 = 4 points in total'],
+            [2, 'I gain 4 and pay the cost of 2 = 2 points in total'],
+            [3, 'I gain 0 and pay the cost of 2 = -2 points in total']
         ],
         widget=widgets.RadioSelect
     )

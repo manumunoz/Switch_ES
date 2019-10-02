@@ -66,7 +66,7 @@ USE_THOUSAND_SEPARATOR = True
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree',]
@@ -144,7 +144,8 @@ SESSION_CONFIGS = [
         'name': 'sticky_en',
         'display_name': "sticky_en",
         'num_demo_participants': 7,
-        'app_sequence': ['name_en', 'inst_fixed_en', 'fixed_en', 'inst_fluid_en', 'fluid_en', 'alloc_en', 'pay_en'],
+        # 'app_sequence': ['name_en', 'inst_fixed_en', 'fixed_en', 'inst_fluid_en', 'fluid_en', 'alloc_en', 'pay_en'],
+        'app_sequence': ['name_en', 'inst_fixed_en', 'inst_fluid_en',],
         'treatment': 2,
         # 'use_browser_bots': True
     },

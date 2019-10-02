@@ -35,7 +35,7 @@ class Constants(BaseConstants):
     rounds_fixed = 10
     #------------------------------------------
     # Payoffs
-    exp_currency = "puntos"
+    exp_currency = "points"
     currency = "pesos"
     currency_exchange = 800
     points_exchange = 1

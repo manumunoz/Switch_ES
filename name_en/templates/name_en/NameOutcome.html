@@ -6,9 +6,9 @@
     <div class="row">
       <div class="col-sm-12 border border-dark text-white rounded" id="upper">
         {% if player.given_type == 1 %}
-            <h2>El nombre de su grupo es: <span id="lower">{{ group.circles_label }}</span></h2>
+            <h2>The name of your group is: <span id="lower">{{ group.circles_label }}</span></h2>
         {% elif player.given_type == 5 %}
-            <h2>El nombre de su grupo es: <span id="lower">{{ group.triangles_label }}</span></h2>
+            <h2>The name of your group is: <span id="lower">{{ group.triangles_label }}</span></h2>
         {% endif %}
       </div>
     </div>
@@ -22,20 +22,20 @@
         <p>
             {% if player.given_type == 1 %}
                 {% if group.circles_coord == 1 %}
-                    Todos los {{ Constants.total_circles }} jugadores en su grupo eligieron el mismo nombre.
+                    All {{ Constants.total_circles }} players in your group chose the same name.
                 {% elif group.circles_coord == 0 %}
-                    No todos los {{ Constants.total_circles }} jugadores en su grupo eligieron el mismo nombre.
-                    Así que el nombre de su grupo fue asignado de manera aleatoria.
+                    Not all {{ Constants.total_circles }} players in your group chose the same name.
+                    So the name of your group was assigned randomly.
                 {% endif %}
             {% elif player.given_type == 5 %}
                 {% if group.triangles_coord == 1 %}
-                    Todos los {{ Constants.total_triangles }} jugadores en su grupo eligieron el mismo nombre.
+                    All {{ Constants.total_triangles }} players in your group chose the same name.
                 {% elif group.triangles_coord == 0 %}
-                    No todos los {{ Constants.total_triangles }} jugadores en su grupo eligieron el mismo nombre.
-                    Así que el nombre de su grupo fue asignado de manera aleatoria.
+                    Not all {{ Constants.total_triangles }} players in your group chose the same name.
+                    So the name of your group was assigned randomly.
                 {% endif %}
             {% endif %}
-            <button type="otree-btn-next" class="btn button btn-md" style="float: right;"> Continuar </button>
+            <button type="otree-btn-next" class="btn button btn-md" style="float: right;"> Continue </button>
           <br>
         </p>
       </div>

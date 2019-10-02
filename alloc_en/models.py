@@ -35,7 +35,7 @@ class Constants(BaseConstants):
     part_alloc = 4
     #------------------------------------------
     # Payoffs
-    exp_currency = "puntos"
+    exp_currency = "points"
     currency = "pesos"
     currency_exchange = 800
     points_exchange = 1
@@ -46,16 +46,16 @@ class Constants(BaseConstants):
     disliked_gain = 4
     #------------------------------------------
     # Group Names
-    group_a = 'Leones' #Leones
-    group_b = 'Tigres' #Tigres
-    group_c = 'Leopardos' #Leopardos
-    group_d = 'Jaguares' #Jaguares
-    group_e = 'Gatos' #Gatos
+    group_a = 'Lions' #Leones
+    group_b = 'Tigers' #Tigres
+    group_c = 'Leopards' #Leopardos
+    group_d = 'Jaguars' #Jaguares
+    group_e = 'Cats' #Gatos
     group_f = 'Coyotes' #Coyotes
-    group_g = 'Chacales' #Chacales
-    group_h = 'Lobos' #Lobos
-    group_i = 'Zorros' #Zorros
-    group_j = 'Perros' #Perros
+    group_g = 'Jackals' #Chacales
+    group_h = 'Wolves' #Lobos
+    group_i = 'Foxes' #Zorros
+    group_j = 'Dogs' #Perros
     #------------------------------------------
     # Dictator
     pie = 10

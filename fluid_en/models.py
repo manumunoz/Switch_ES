@@ -16,10 +16,10 @@ Identity Switch - Networks: FLUID
 
 class Constants(BaseConstants):
     #------------------------------------------
-    name_in_url = 'fluid_es'
+    name_in_url = 'fluid_en'
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
-    instructions_template = 'fluid_es/Instructions.html'
+    instructions_template = 'fluid_en/Instructions.html'
     periods = 1
     num_rounds = periods
     #------------------------------------------
@@ -36,7 +36,7 @@ class Constants(BaseConstants):
     rounds_fixed = 10
     #------------------------------------------
     # Payoffs
-    exp_currency = "puntos"
+    exp_currency = "points"
     currency = "pesos"
     currency_exchange = 800
     points_exchange = 1
@@ -57,16 +57,16 @@ class Constants(BaseConstants):
     n_maj = 4
     #------------------------------------------
     # Group Names
-    group_a = 'Leones' #Leones
-    group_b = 'Tigres' #Tigres
-    group_c = 'Leopardos' #Leopardos
-    group_d = 'Jaguares' #Jaguares
-    group_e = 'Gatos' #Gatos
+    group_a = 'Lions' #Leones
+    group_b = 'Tigers' #Tigres
+    group_c = 'Leopards' #Leopardos
+    group_d = 'Jaguars' #Jaguares
+    group_e = 'Cats' #Gatos
     group_f = 'Coyotes' #Coyotes
-    group_g = 'Chacales' #Chacales
-    group_h = 'Lobos' #Lobos
-    group_i = 'Zorros' #Zorros
-    group_j = 'Perros' #Perros
+    group_g = 'Jackals' #Chacales
+    group_h = 'Wolves' #Lobos
+    group_i = 'Foxes' #Zorros
+    group_j = 'Dogs' #Perros
     #------------------------------------------
     # # FOR TEST - DELETE AFTERWARDS!!!
     # circles_name = 1

@@ -1,0 +1,239 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 border border-dark text-white rounded" id="upper">
+            <h2> Points in Part {{ Constants.part_fixed }} </h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 border rounded" id="pale">
+            <h5>Stage 3: Results</h5>
+            <p>
+                In stage 3 for each round, you will see how many {{ Constants.exp_currency }} you get in that round.
+                The {{ Constants.exp_currency }} are calculated by the gains of coordinating with your active connections
+                minus the costs of your proposed connections.
+                A coordination is an instance where you and another player with whom you have an active connection
+                both chose the same action: <button class="btn button1 btn-sm" disabled>Cyan</button> or
+                <button class="btn button2 btn-sm" disabled>Terra</button>. The computer will do the calculations for
+                you in each round, but below you can see how the {{ Constants.exp_currency }} are calculated in 3 simple steps:
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 border rounded" id="network">
+            <br>
+            <h5>Step 1: Gains from coordination</h5>
+            <p>
+            Gains in each round depend on (i) your group, (ii) the action you pick, and (iii) the number of your active
+            connections choosing the same (including yourself). You do not earn anything with a player if you do not have
+            an active connection together and choose the same action.
+            </p>
+            <p>
+            <b>If your group is <b>&#9679 "{{ circles_label }}"</b> and you:</b>
+            <ul>
+                <li>choose <button class="btn button1 btn-sm" disabled>Cyan</button>, you get <b>{{ Constants.liked_gain }} {{ Constants.exp_currency }}</b> for each
+                active connection also choosing <button class="btn button1 btn-sm" disabled>Cyan</button> (including yourself) and <b>0 {{ Constants.exp_currency }}</b> for
+                    any active connection also choosing <button class="btn button2 btn-sm" disabled>Terra</button> </li>
+                <br>
+                <li>choose <button class="btn button2 btn-sm" disabled>Terra</button>, you get <b>{{ Constants.disliked_gain }} {{ Constants.exp_currency }}</b> for each
+                active connection also choosing <button class="btn button2 btn-sm" disabled>Terra</button> (including yourself) and <b>0 {{ Constants.exp_currency }}</b> for
+                    any active connection also choosing <button class="btn button1 btn-sm" disabled>Cyan</button> </li>
+            </ul>
+            </p>
+            <p>
+            <b>If your group is <b>&#9650 "{{ triangles_label }}"</b> and you:</b>
+            <ul>
+                <li>choose <button class="btn button2 btn-sm" disabled>Terra</button>, you get <b>{{ Constants.liked_gain }} {{ Constants.exp_currency }}</b> for each
+                active connection also choosing <button class="btn button2 btn-sm" disabled>Terra</button> (including yourself) and <b>0 {{ Constants.exp_currency }}</b> for
+                    any active connection also choosing <button class="btn button1 btn-sm" disabled>Cyan</button> </li>
+                <br>
+                <li>choose <button class="btn button1 btn-sm" disabled>Cyan</button>, you get <b>{{ Constants.disliked_gain }} {{ Constants.exp_currency }}</b> for each
+                active connection also choosing <button class="btn button1 btn-sm" disabled>Cyan</button> (including yourself) and <b>0 {{ Constants.exp_currency }}</b> for
+                    any active connection also choosing <button class="btn button2 btn-sm" disabled>Terra</button> </li>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 border rounded" id="network">
+            <br>
+            <h5>Step 2: Costs from proposals</h5>
+            <p>
+            Your costs in each round depend <b>only on the number of connections you propose</b>. You pay a cost of
+            <b>{{ Constants.link_cost }} {{ Constants.exp_currency }}</b> for each proposal you make,
+                independently of whether the other player also proposes a connection to you or not.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 border rounded" id="network">
+            <br>
+            <h5>Step 3: Total {{ Constants.exp_currency }}</h5>
+            <p>
+            Your {{ Constants.exp_currency }} are calculated as the <b>gains from coordinating with your active connections</b> minus the
+            <b>cost of each connection you propose</b>. The examples illustrate this:
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 border rounded" id="pale">
+            <br>
+            <h5>Example 1: Player 6 in group <b>&#9679 "{{ circles_label }}"</b> chose <button class="btn button1 btn-sm" disabled>Cyan</button></h5>
+            <p>
+                <b>1. Earnings:</b> Player 6 formed  <b>two</b> active connections (with players 2 and 3) and have <b>two</b> coordinations,
+                (with player 2 and with himself). The two coordinations are multiplied by <b>{{ Constants.liked_gain }}</b>
+                (because his group is &#9679 "{{ circles_label }}" and he chose <button class="btn button1 btn-sm" disabled>Cyan</button>).
+                <br>
+                Player 6 did not coordinate with player 3, therefore he does not earn {{ Constants.exp_currency }} with that active connection.
+                Player 6 coordinated with players 4 and 5, but did not form an active connection with either of them, so he cannot earn {{ Constants.exp_currency }}
+                with them. Player 6's earnings are: <b>12 {{ Constants.exp_currency }}.</b>
+            <br><br>
+                <b>2. Costs:</b> Player 6 proposed <b>four</b> connections (to players 1, 2, 3 and 4), the cost of each proposal is {{ Constants.link_cost }}
+            {{ Constants.exp_currency }}, so he pays <b>8 {{ Constants.exp_currency }}</b>.
+            <br><br>
+            <b>3. Total Points:</b> Player 6 gets 12 in gains minus 8 in costs: 12 - 8 = <b>4 {{ Constants.exp_currency }}</b> in this round.
+            </p>
+        </div>
+        <div class="col-sm-4 border rounded" id="network">
+            <img width="100%"  src="{% static "inst_fixed_en/Img_C1.png" %}"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 border rounded" id="pale">
+            <br>
+            <h5>Example 2: Player 6 in group <b>&#9679 "{{ circles_label }}"</b> chose <button class="btn button2 btn-sm" disabled>Terra</button></h5>
+            <p>
+                <b>1. Earnings:</b> Player 6 formed  <b>three</b> active connections (with players 1, 2 and 3) and have <b>two</b> coordinations,
+                (with player 1 and with himself). The two coordinations are multiplied by <b>{{ Constants.disliked_gain }}</b>
+                (because his group is &#9679 "{{ circles_label }}" and he chose <button class="btn button2 btn-sm" disabled>Terra</button>).
+                <br>
+                Player 6 did not coordinate with players 2 and 5, therefore he does not earn {{ Constants.exp_currency }} with those active connection.
+                Player 6 coordinated with players 3 and 7, but did not form an active connection with either of them, so he cannot earn {{ Constants.exp_currency }}
+                with them. Player 6's earnings are: <b>8 {{ Constants.exp_currency }}.</b>
+            <br><br>
+                <b>2. Costos:</b> Player 6 proposed <b>five</b> connections (to players 1, 2, 3, 4 and 5), the cost of each proposal is {{ Constants.link_cost }}
+            {{ Constants.exp_currency }}, so he pays <b>10 {{ Constants.exp_currency }}</b>.
+            <br><br>
+            <b>3. Puntos Totales:</b> Player 6 gets 8 in gains minus 10 in costs: 8 - 10 = <b>-2 {{ Constants.exp_currency }}</b> in this round.
+            </p>
+        </div>
+        <div class="col-sm-4 border rounded" id="network">
+            <img width="100%" src="{% static "inst_fixed_en/Img_C2.png" %}"/>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 border rounded" id="network">
+            <br>
+            <h4>Before you continue, please answer the following comprehension questions: </h4>
+            <br>
+            <p>
+            <b>1. Imagine your group is &#9679 "{{ circles_label }}", you chose action <button class="btn button1 btn-sm" disabled>Cyan</button> and you have one active connection
+            with a player who chose action <button class="btn button1 btn-sm" disabled>Cyan</button>. What are the total {{ Constants.exp_currency }} you get <i>from this
+            connection</i> (not including what you get from coordinatng with yourself)?</b>
+            <br>
+            <small>{% formfield player.pay_coord label="" %}</small>
+            </p>
+            <p>
+            <b>2. Imagine your group is &#9679 "{{ circles_label }}", you chose action <button class="btn button1 btn-sm" disabled>Cyan</button> and you have one active connection
+            with a player who chose action <button class="btn button2 btn-sm" disabled>Terra</button>. What are the total {{ Constants.exp_currency }} you get <i>from
+            this connection</i> (not including what you get from coordinatng with yourself)?</b>
+            <br>
+            <small>{% formfield player.pay_nocoord label="" %}</small>
+            </p>
+            <button type="otree-btn-next" class="btn button btn-md" style="float: right;"> Continue </button>
+            <br><br>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button {
+            background-color: #000000;
+            color: #EEE8AA;
+            border: 2px solid #EEE8AA
+        }
+        .button:hover {
+            background-color: #EEE8AA;
+            color: #000000;
+            border: 2px solid #000000
+        }
+        .button1 {
+            background-color: #42daf5;
+            color: #000000;
+            border: 2px solid #ffffff
+        }
+        .button1:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #42daf5
+        }
+        .button2 {
+            background-color: #f59e42;
+            color: #000000;
+            border: 2px solid #ffffff
+        }
+        .button2:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #f59e42
+        }
+        #upper{
+            background-color: #000000;
+        }
+        #middle{
+            background-color: #424242;
+        }
+        #lower{
+            color: #EEE8AA
+        }
+        #network{
+            background-color: #ffffff;
+        }
+        #pale{
+            background-color: #F5F5F5;
+        }
+        #in_tie{
+            background-color: #000000;
+            color: #ffffff
+        }
+        #out_tie{
+            background-color: #616161;
+            color: #ffffff
+        }
+        .buttonup {
+            background-color: #9C27B0;
+            color: #ffffff;
+            border: 1px solid #AD1457;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+        .buttondown {
+            background-color: #00BCD4;
+            color: #ffffff;
+            border: 1px solid #00838F;
+            padding: 1px 2px;
+            display: inline-block;
+            {#font-size: 13px;#}
+        }
+    </style>
+{% endblock %}

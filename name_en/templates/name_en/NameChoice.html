@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
       <div class="col-sm-12 border border-dark text-white rounded" id="upper">
-          <h2>Parte {{ Constants.part_name }}: <span id="lower"> Su grupo</span></h2>
+          <h2>Part {{ Constants.part_name }}: <span id="lower"> Your group</span></h2>
       </div>
     </div>
 </div>
@@ -16,60 +16,58 @@
     <div class="row">
       <div class="col-sm-12 border rounded" id="network">
         <p>
-            Aquí le explicamos la información visual de su grupo (la forma en que será representado en la pantalla).
-            Esta información será útil para las siguientes partes del experimento.
-            En esta parte usted además tomará una decisión junto con los demás jugadores asignados a su grupo: ustedes
-            escogerán un nombre para su grupo. Esto se explica a continuación:
+            Here we explain the visual information of your group (the way it will be displayed on the screen).
+            This information will be useful for the subsequent parts of the experiment.
+            In this part you will also make a decision together with the other participants assigned to your group: you
+            will choose a name for your group. This is explained as follows:
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6 border rounded" id="network">
-        <h5>1. Imagen del grupo</h5>
+        <h5>1. Group image</h5>
         <p>
             {% if player.given_type == 1 %}
-            Usted ha sido asignado al <b>grupo</b> <span id='symbol'>&#9679</span> (símbolo interno)
-            y su <b>apariencia</b> es <span id='symbol'>&#9711</span> (símbolo externo).
+            You have been assigned to <b>group</b> <span id='symbol'>&#9679</span> (internal symbol)
+            and your <b>appearance</b> is <span id='symbol'>&#9711</span> (external symbol).
             <br><br>
-            Hay {{ Constants.total_circles }} jugadores en su grupo <span id='symbol'>&#9679</span>, incluyéndolo a usted.
-            Hay {{ Constants.total_triangles }} jugadores en el grupo <span id='symbol'>&#9650</span>.
+            There are {{ Constants.total_circles }} players in your group<span id='symbol'>&#9679</span>, you included.
+            There are {{ Constants.total_triangles }} players in group <span id='symbol'>&#9650</span>.
             <br><br>
-            Cada jugador en su grupo será representado en la pantalla usando la siguiente imagen:
+            Each player in your group will be displayed on the screen  using the following image:
             <br><br>
             <img width="50%" src="{% static "name_es/Img_T1.jpeg" %}"/>
             <br><br>
-            En la caja de chat al lado derecho usted podrá hablar con los otros participantes del grupo <span id='symbol'>&#9679</span>
-            y elegir un nombre para su grupo, <i>presionando el botón con el nombre que ustedes prefieran como grupo</i>.
-            <b>Para elegir un nombre, todos los {{ Constants.total_circles }} jugadores en su grupo deben presionar
-            el mismo botón</b>.
+            In the chat box on the right hand side you can communicate with the other participants in group <span id='symbol'>&#9679</span>
+            and choose a name for your group, <i>by clicking on the button with the name you prefer as a group</i>.
+            <b>To choose a name, all {{ Constants.total_circles }} players in your group must click on the same button</b>.
 
             {% elif player.given_type == 5 %}
-            Usted ha sido asignado al <b>grupo</b> <span id='symbol'>&#9650</span> (símbolo interno)
-            y su <b>apariencia</b> es <span id='symbol'>&#9651</span> (símbolo externo).
+            You have been assigned to <b>group</b> <span id='symbol'>&#9650</span> (internal symbol)
+            and your <b>appearance</b> is <span id='symbol'>&#9651</span> (external symbol).
             <br><br>
-            Hay {{ Constants.total_triangles }} jugadores en su grupo <span id='symbol'>&#9650</span>, incluyéndolo a usted.
-            Hay {{ Constants.total_circles }} jugadores en el grupo <span id='symbol'>&#9679</span>.
+            There are {{ Constants.total_triangles }} players in your group<span id='symbol'>&#9650</span>, you included.
+            There are {{ Constants.total_circles }} players in group <span id='symbol'>&#9679</span>.
             <br><br>
-            Cada jugador en su grupo será representado en la pantalla usando la siguiente imagen:
+            Each player in your group will be displayed on the screen  using the following image:
             <br><br>
             <img width="50%" src="{% static "name_es/Img_T2.jpeg" %}"/>
             <br><br>
-            En la caja de chat al lado derecho usted podrá hablar con los otros participantes del grupo <span id='symbol'>&#9650</span>
-            y elegir un nombre para su grupo, <i>presionando el botón con el nombre que ustedes prefieran como grupo</i>.
-            <b>Para elegir un nombre, todos los {{ Constants.total_triangles }} jugadores en su grupo deben presionar
-            el mismo botón</b>.
+            In the chat box on the right hand side you can communicate with the other participants in group <span id='symbol'>&#9650</span>
+            and choose a name for your group, <i>by clicking on the button with the name you prefer as a group</i>.
+            <b>To choose a name, all {{ Constants.total_circles }} players in your group must click on the same button</b>.
             {% endif %}
         </p>
       </div>
       <div class="col-sm-6 border rounded" id="network">
         <div>
-          <h5>2. Nombre del grupo</h5>
+          <h5>2. Group name</h5>
           <p>
-              En la caja de chat debajo, usted será etiquetado como <b>Jugador {{ player.role }}</b>. No está permitido
-              usar lenguaje ofensivo. Y para mantener la anonimidad, tampoco está permitido enviar ninguna información
-              que le permita a los demás indentificar quién es usted.
+              In the chat box below, you will be labeled as <b>Player {{ player.role }}</b>. It is not allowed to use any
+              offensive language. And to maintain anonymity, it is not allowed to send any information that can be used
+              by the other participants to identify who you are.
               <br><br>
-              <i>Escriba en la caja de chat para comunicarse con los otros jugadores en su grupo.</i>
+              <i>Write on the chat box to communicate with the other players in your group.</i>
           </p>
         </div>
         <div>
@@ -78,7 +76,7 @@
         <div id="centering">
             <br>
           <p>
-              <b>Presione el botón con el nombre que su grupo ha elegido</b>.
+              <b>Click on the button with the name chosen by your group</b>.
           </p>
             <input type="hidden" value="0" name="group_name" id="group_name"/>
             {% if player.given_type == 1 %}

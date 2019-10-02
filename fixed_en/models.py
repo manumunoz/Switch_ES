@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     names = ['1','2','3','4','5','6','7']
     players_per_group = len(names)
     instructions_template = 'fixed_en/Instructions.html'
-    periods = 10
+    periods = 1
     num_rounds = periods
     #------------------------------------------
     # Treatment & Group parameters
@@ -49,16 +49,16 @@ class Constants(BaseConstants):
     exchange = 2
     #------------------------------------------
     # Group Names
-    group_a = 'Leones' #Leones
-    group_b = 'Tigres' #Tigres
-    group_c = 'Leopardos' #Leopardos
-    group_d = 'Jaguares' #Jaguares
-    group_e = 'Gatos' #Gatos
+    group_a = 'Lions' #Leones
+    group_b = 'Tigers' #Tigres
+    group_c = 'Leopards' #Leopardos
+    group_d = 'Jaguars' #Jaguares
+    group_e = 'Cats' #Gatos
     group_f = 'Coyotes' #Coyotes
-    group_g = 'Chacales' #Chacales
-    group_h = 'Lobos' #Lobos
-    group_i = 'Zorros' #Zorros
-    group_j = 'Perros' #Perros
+    group_g = 'Jackals' #Chacales
+    group_h = 'Wolves' #Lobos
+    group_i = 'Foxes' #Zorros
+    group_j = 'Dogs' #Perros
     #------------------------------------------
 
 
